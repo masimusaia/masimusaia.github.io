@@ -11,9 +11,9 @@ const LINKS = [
 ];
 
 const PRODUCTS = [
-  { id: "k1", name: "Mimi with a Bow Keychain", type: "Keychains", fandom: "Warhammer", character: "Konrad Curze", price: 350, weight: 0, img: "img/konrad-mvezljp7.jpg", desc: "Keychain, 8–5–3 cm, acrylic" },
-  { id: "k2", name: "Lulu and Hearts Keychain", type: "Keychains", fandom: "Warhammer", character: "Rogal Dorn", price: 350, weight: 20, img: "img/rogal-mvezdol2.jpg", desc: "Acrylic with glitter inside, 6 cm.", isNew: true },
-  { id: "s1", name: "Mimi Sticker Pack", type: "Stickers", fandom: "Original", character: "Corvus Corax", price: 220, weight: 15, img: "img/stick1-mvezlxa1.jpg", desc: "sticker" }
+  { id: "k1", name: "Mimi with a Bow Keychain", type: "Keychains", fandom: ["Warhammer"], character: ["Konrad Curze"], price: 350, img: "img/konrad-mvezljp7.jpg", desc: "Keychain, 8–5–3 cm, acrylic" },
+  { id: "k2", name: "Lulu and Hearts Keychain", type: "Keychains", fandom: ["Warhammer"], character: ["Rogal Dorn"], price: 350, img: "img/rogal-mvezdol2.jpg", desc: "Acrylic with glitter inside, 6 cm.", isNew: true },
+  { id: "s1", name: "Mimi Sticker Pack", type: "Stickers", fandom: ["Original"], character: ["Corvus Corax"], price: 220, img: "img/stick1-mvezlxa1.jpg", desc: "sticker" }
 ];
 
 const CUSTOM = {
@@ -21,10 +21,10 @@ const CUSTOM = {
   status: "Custom orders are open",
   closedStatus: "Custom orders are closed for now",
   types: [
-    { id: "c-key", name: "Acrylic keychains", from: 450, minQty: 5 },
-    { id: "c-stk", name: "Vinyl stickers", from: 150, minQty: 10 },
-    { id: "c-pin", name: "Enamel pins", from: 700, minQty: 20 },
-    { id: "c-other", name: "Something else", from: null, minQty: 1 }
+    { id: "c-key", name: "Acrylic keychains", from: 450, minQty: 5, img: "" },
+    { id: "c-stk", name: "Vinyl stickers", from: 150, minQty: 10, img: "" },
+    { id: "c-pin", name: "Enamel pins", from: 700, minQty: 20, img: "" },
+    { id: "c-other", name: "Something else", from: null, minQty: 1, img: "" }
   ]
 };
 
@@ -36,9 +36,9 @@ const COMMISSIONS = {
     { id: "chib", name: "Chibi", price: 1200, img: "" }
   ],
   addons: [
-    { name: "Simple background", price: 20 },
-    { name: "Extra character", price: 100 },
-    { name: "Rush", price: 50 }
+    { name: "Simple background", price: 20, percent: false },
+    { name: "Extra character", price: 100, percent: false },
+    { name: "Rush", price: 50, percent: true }
   ],
   note: "Prices are for personal use. Commercial use is discussed separately."
 };
@@ -56,8 +56,8 @@ const SHOP = {
   currency: "$",
   contact: { name: "Telegram", text: "@ellikruze", url: "https://t.me/ellikruze" },
   zones: [
-    { id: "ru", name: "Russia", days: "5–14 days", base: 150, per100g: 30, freeFrom: 300 },
-    { id: "cis", name: "Belarus, Kazakhstan", days: "10–25 days", base: 300, per100g: 60, freeFrom: null },
-    { id: "world", name: "Other countries", days: "14–45 days", base: 500, per100g: 100, freeFrom: null }
+    { id: "ru", name: "Russia", days: "5–14 days", base: 150, freeFrom: 300 },
+    { id: "cis", name: "Belarus, Kazakhstan", days: "10–25 days", base: 300, freeFrom: null },
+    { id: "world", name: "Other countries", days: "14–45 days", base: 500, freeFrom: null }
   ]
 };

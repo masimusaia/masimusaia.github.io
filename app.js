@@ -9,9 +9,16 @@
   const uniq = a => [...new Set(a)];
   const KEY = "merch-cart-v1";
 
-  const FANDOMS = uniq(PRODUCTS.map(p => p.fandom));
-  const tint = p => "tint-" + (FANDOMS.indexOf(p.fandom) % 5);
-  const letter = p => esc((p.character || p.name).trim().charAt(0).toUpperCase());
+  // fandom and character may be a string or a list of strings
+  const arr = v => Array.isArray(v) ? v.filter(Boolean) : v ? [v] : [];
+  const meta = p => [arr(p.fandom).join(" / "), arr(p.character).join(" / ")].filter(Boolean).join(", ");
+  // inside the admin preview (an iframe) items get a data-cfg attribute so a click can open them in the editor
+  const ED = window.parent !== window;
+  const cf = p => ED ? ` data-cfg="${p}"` : "";
+
+  const FANDOMS = uniq(PRODUCTS.flatMap(p => arr(p.fandom)));
+  const tint = p => "tint-" + Math.max(0, FANDOMS.indexOf(arr(p.fandom)[0])) % 5;
+  const letter = p => esc((arr(p.character)[0] || p.name).trim().charAt(0).toUpperCase());
 
   /* ---------- state ---------- */
   const filters = { fandom: "", character: "", type: "" };
@@ -52,7 +59,7 @@
   }
 
   function renderFilters() {
-    const chars = uniq(PRODUCTS.filter(p => !filters.fandom || p.fandom === filters.fandom).map(p => p.character));
+    const chars = uniq(PRODUCTS.filter(p => !filters.fandom || arr(p.fandom).includes(filters.fandom)).flatMap(p => arr(p.character)));
     if (filters.character && !chars.includes(filters.character)) filters.character = "";
     chipRow("#f-type", uniq(PRODUCTS.map(p => p.type)), "type");
     chipRow("#f-fandom", FANDOMS, "fandom");
@@ -67,14 +74,14 @@
     const art = p.img
       ? `<img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy">`
       : `<span class="mono" aria-hidden="true">${letter(p)}</span>`;
-    return `<article class="item${p.soldOut ? " sold" : ""}">
+    return `<article class="item${p.soldOut ? " sold" : ""}"${cf("PRODUCTS." + PRODUCTS.indexOf(p))}>
       <div class="shot ${tint(p)}">
         ${art}
         <div class="pills"><span class="pill">${esc(p.type)}</span>${p.isNew ? '<span class="pill rose">new</span>' : ""}${p.soldOut ? '<span class="pill dark">sold out</span>' : ""}</div>
         <span class="sticker">${money(p.price)}</span>
       </div>
       <h3>${esc(p.name)}</h3>
-      <p class="meta">${esc(p.fandom)}, ${esc(p.character)}</p>
+      ${meta(p) ? `<p class="meta">${esc(meta(p))}</p>` : ""}
       ${p.desc ? `<p class="desc">${esc(p.desc)}</p>` : ""}
       <div class="actions">
         <button type="button" class="btn${q ? "" : " ghost"}" data-add="${esc(p.id)}"${p.soldOut ? " disabled" : ""}>${p.soldOut ? "Sold out" : addLabel(q)}</button>
@@ -85,8 +92,8 @@
 
   function renderShop() {
     const list = PRODUCTS.filter(p =>
-      (!filters.fandom || p.fandom === filters.fandom) &&
-      (!filters.character || p.character === filters.character) &&
+      (!filters.fandom || arr(p.fandom).includes(filters.fandom)) &&
+      (!filters.character || arr(p.character).includes(filters.character)) &&
       (!filters.type || p.type === filters.type));
     const active = Object.values(filters).filter(Boolean).length;
     $("#count").textContent = list.length ? `Found: ${list.length}` : "";
@@ -119,20 +126,19 @@
   function totals() {
     const rows = Object.entries(cart).map(([id, q]) => ({ p: byId(id), q })).filter(r => r.p);
     const sub = rows.reduce((s, r) => s + r.p.price * r.q, 0);
-    const grams = rows.reduce((s, r) => s + (r.p.weight || 0) * r.q, 0);
     const count = rows.reduce((s, r) => s + r.q, 0);
     const z = SHOP.zones.find(z => z.id === buyer.zone) || SHOP.zones[0];
     let ship = 0, free = false;
     if (rows.length) {
-      ship = z.base + Math.ceil(grams / 100) * z.per100g;
+      ship = z.base;
       if (z.freeFrom && sub >= z.freeFrom) { ship = 0; free = true; }
     }
-    return { rows, sub, grams, count, z, ship, free, total: sub + ship };
+    return { rows, sub, count, z, ship, free, total: sub + ship };
   }
 
   function template(t) {
     const lines = t.rows.map((r, i) =>
-      `${i + 1}. ${r.p.name} (${r.p.fandom}, ${r.p.character}): ${r.q} × ${money(r.p.price)} = ${money(r.p.price * r.q)}`);
+      `${i + 1}. ${r.p.name}${meta(r.p) ? " (" + meta(r.p) + ")" : ""}: ${r.q} × ${money(r.p.price)} = ${money(r.p.price * r.q)}`);
     return [
       "Hi! I'd like to place an order.",
       "",
@@ -168,7 +174,7 @@
         <div class="th ${tint(p)}">${p.img ? `<img src="${esc(p.img)}" alt="" loading="lazy">` : letter(p)}</div>
         <div class="info">
           <strong>${esc(p.name)}</strong>
-          <span class="sub">${esc(p.fandom)}, ${esc(p.character)}</span>
+          <span class="sub">${esc(meta(p))}</span>
           <span class="step">
             <button type="button" data-dec="${esc(p.id)}" aria-label="Decrease">−</button>
             <output>${q}</output>
@@ -298,8 +304,8 @@
   $("#zone").innerHTML = SHOP.zones.map(z => `<option value="${esc(z.id)}">${esc(z.name)}</option>`).join("");
   $("#zone").value = buyer.zone;
 
-  $("#tos-zones").innerHTML = SHOP.zones.map(z =>
-    `<tr><th scope="row">${esc(z.name)}</th><td>${esc(z.days)}</td><td>${money(z.base)}</td><td>${money(z.per100g)}</td><td>${z.freeFrom ? "from " + money(z.freeFrom) : "none"}</td></tr>`
+  $("#tos-zones").innerHTML = SHOP.zones.map((z, i) =>
+    `<tr${cf("SHOP.zones." + i)}><th scope="row">${esc(z.name)}</th><td>${esc(z.days)}</td><td>${money(z.base)}</td><td>${z.freeFrom ? "from " + money(z.freeFrom) : "none"}</td></tr>`
   ).join("");
 
   document.querySelectorAll("[data-contact]").forEach(a => {
@@ -312,6 +318,7 @@
   /* ---------- home: links ---------- */
   $("#artist-name").textContent = ARTIST.name;
   $("#artist-tagline").textContent = ARTIST.tagline;
+  if (ED) { $("#artist-name").dataset.cfg = "ARTIST.name"; $("#artist-tagline").dataset.cfg = "ARTIST.tagline"; }
   const ICONS = {
     telegram:  '<path d="M21.5 3.5 2.5 10.8l5.6 2.1 2 6.1 3.2-3.7 4.9 3.6z"/><path d="M8.1 12.9 21.5 3.5"/>',
     instagram: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/>',
@@ -319,12 +326,12 @@
     boosty:    '<path d="M12 20.5s-8-4.7-8-10.6A4.4 4.4 0 0 1 12 7.4a4.4 4.4 0 0 1 8 2.5c0 5.9-8 10.6-8 10.6z"/>',
     email:     '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6.5L20.5 7"/>',
   };
-  $("#links-list").innerHTML = LINKS.map(l => {
+  $("#links-list").innerHTML = LINKS.map((l, i) => {
     const label = esc(l.name + (l.text ? ": " + l.text : ""));
     const art = ICONS[l.icon]
       ? `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[l.icon]}</svg>`
       : `<span class="ltr" aria-hidden="true">${esc(l.name.trim().charAt(0).toUpperCase())}</span>`;
-    return `<a class="link-card" href="${esc(l.url)}" aria-label="${label}" title="${label}"${/^https?:/.test(l.url) ? ' target="_blank" rel="noopener"' : ""}>${art}</a>`;
+    return `<a class="link-card"${cf("LINKS." + i)} href="${esc(l.url)}" aria-label="${label}" title="${label}"${/^https?:/.test(l.url) ? ' target="_blank" rel="noopener"' : ""}>${art}</a>`;
   }).join("");
 
   /* ---------- custom merch and commissions ---------- */
@@ -338,28 +345,30 @@
   setStatus("#custom-status", CUSTOM);
   $("#custom-cta").hidden = !CUSTOM.open;
   $("#custom-types").innerHTML = CUSTOM.types.map((t, i) => `
-    <article class="offer tint-${i % 5}">
+    <article class="offer tint-${i % 5}"${cf("CUSTOM.types." + i)}>
       <h3>${esc(t.name)}</h3>
       <p class="price">${t.from == null ? "ask me" : "from " + money(t.from)}</p>
       <p class="meta">Minimum: ${t.minQty} pcs</p>
+      ${t.img ? `<img class="ex" src="${esc(t.img)}" alt="${esc(t.name)} example" loading="lazy">` : ""}
     </article>`).join("");
 
   // digital commissions: price list
   $("#comm-types").innerHTML = COMMISSIONS.types.map((t, i) => `
-    <article class="offer tint-${(i + 2) % 5}">
-      ${t.img ? `<img class="ex" src="${esc(t.img)}" alt="${esc(t.name)} example" loading="lazy">` : ""}
+    <article class="offer tint-${(i + 2) % 5}"${cf("COMMISSIONS.types." + i)}>
       <h3>${esc(t.name)}</h3>
       <p class="price">${money(t.price)}</p>
+      ${t.img ? `<img class="ex" src="${esc(t.img)}" alt="${esc(t.name)} example" loading="lazy">` : ""}
     </article>`).join("");
-  $("#comm-addons").innerHTML = COMMISSIONS.addons.map(x =>
-    `<li><span>${esc(x.name)}</span><b>+${money(x.price)}</b></li>`).join("");
+  $("#comm-addons").innerHTML = COMMISSIONS.addons.map((x, i) =>
+    `<li${cf("COMMISSIONS.addons." + i)}><span>${esc(x.name)}</span><b>+${x.percent ? nf.format(x.price) + "%" : money(x.price)}</b></li>`).join("");
   $("#comm-note").textContent = COMMISSIONS.note || "";
+  if (ED) $("#comm-note").dataset.cfg = "COMMISSIONS.note";
 
   // gallery
   $("#gallery-title").hidden = !GALLERY.length;
   $("#gallery").innerHTML = GALLERY.map((g, i) => g.img
-    ? `<div class="art"><img src="${esc(g.img)}" alt="${esc(g.alt || "")}" loading="lazy" decoding="async"></div>`
-    : `<div class="art tint-${i % 5}" style="aspect-ratio:${Number(g.ratio) || 1}" role="img" aria-label="${esc(g.alt || "Artwork placeholder")}"></div>`
+    ? `<div class="art"${cf("GALLERY." + i)}><img src="${esc(g.img)}" alt="${esc(g.alt || "")}" loading="lazy" decoding="async"></div>`
+    : `<div class="art tint-${i % 5}"${cf("GALLERY." + i)} style="aspect-ratio:${Number(g.ratio) || 1}" role="img" aria-label="${esc(g.alt || "Artwork placeholder")}"></div>`
   ).join("");
 
   /* ---------- cards: one visible at a time ---------- */
