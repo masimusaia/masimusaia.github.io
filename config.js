@@ -36,17 +36,18 @@ const SHOP = {
    img       — image path, e.g. "img/mimi-keychain.jpg" (if empty, a colored placeholder with a letter is shown)
    desc      — short description (can be "")
    soldOut   — true if out of stock
+   isNew     — true to show the item in the "new" block at the top of the shop (add it by hand, remove it when it's no longer new)
    ============================================================ */
 const PRODUCTS = [
   { id: "k1", name: "Mimi with a Bow Keychain",   type: "Keychains", fandom: "Original", character: "Mimi",        price: 350, weight: 20, img: "", desc: "Acrylic, double-sided print, 6 cm." },
-  { id: "k2", name: "Lulu and Hearts Keychain",   type: "Keychains", fandom: "Original", character: "Lulu",        price: 350, weight: 20, img: "", desc: "Acrylic with glitter inside, 6 cm." },
+  { id: "k2", name: "Lulu and Hearts Keychain",   type: "Keychains", fandom: "Original", character: "Lulu",        price: 350, weight: 20, img: "", desc: "Acrylic with glitter inside, 6 cm.", isNew: true },
   { id: "s1", name: "Mimi Sticker Pack",          type: "Stickers",  fandom: "Original", character: "Mimi",        price: 220, weight: 15, img: "", desc: "6 vinyl stickers." },
   { id: "s2", name: "Lulu Sticker",               type: "Stickers",  fandom: "Original", character: "Lulu",        price: 120, weight: 5,  img: "", desc: "Vinyl, waterproof, 7 cm." },
   { id: "k3", name: "Character 1 Keychain",       type: "Keychains", fandom: "Fandom A", character: "Character 1", price: 400, weight: 25, img: "", desc: "Acrylic, 7 cm." },
   { id: "s3", name: "Character 1 Sticker",        type: "Stickers",  fandom: "Fandom A", character: "Character 1", price: 130, weight: 5,  img: "", desc: "" },
   { id: "s4", name: "Character 2 Sticker",        type: "Stickers",  fandom: "Fandom A", character: "Character 2", price: 130, weight: 5,  img: "", desc: "" },
   { id: "k4", name: "Character 3 Keychain",       type: "Keychains", fandom: "Fandom B", character: "Character 3", price: 400, weight: 25, img: "", desc: "Acrylic, 7 cm.", soldOut: true },
-  { id: "s5", name: "Fandom B Sticker Pack",      type: "Stickers",  fandom: "Fandom B", character: "Character 3", price: 250, weight: 15, img: "", desc: "5 vinyl stickers." },
+  { id: "s5", name: "Fandom B Sticker Pack",      type: "Stickers",  fandom: "Fandom B", character: "Character 3", price: 250, weight: 15, img: "", desc: "5 vinyl stickers.", isNew: true },
 ];
 
 /* ============================================================

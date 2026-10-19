@@ -70,7 +70,7 @@
     return `<article class="item${p.soldOut ? " sold" : ""}">
       <div class="shot ${tint(p)}">
         ${art}
-        <div class="pills"><span class="pill">${esc(p.type)}</span>${p.soldOut ? '<span class="pill dark">sold out</span>' : ""}</div>
+        <div class="pills"><span class="pill">${esc(p.type)}</span>${p.isNew ? '<span class="pill rose">new</span>' : ""}${p.soldOut ? '<span class="pill dark">sold out</span>' : ""}</div>
         <span class="sticker">${money(p.price)}</span>
       </div>
       <h3>${esc(p.name)}</h3>
@@ -96,6 +96,13 @@
     $("#grid").innerHTML = list.length
       ? list.map(card).join("")
       : `<p class="empty">Nothing found. Try a different combination of filters.</p>`;
+  }
+
+  function renderNew() {
+    const fresh = PRODUCTS.filter(p => p.isNew);
+    $("#new-block").hidden = !fresh.length;
+    $("#all-title").hidden = !fresh.length;
+    $("#new-grid").innerHTML = fresh.map(card).join("");
   }
 
   function refreshAddButtons() {
@@ -249,7 +256,7 @@
     e.currentTarget.setAttribute("aria-expanded", open);
   });
 
-  $("#grid").addEventListener("click", e => {
+  const shopClick = e => {
     const rm = e.target.closest("[data-rm]");
     if (rm) {
       setQty(rm.dataset.rm, 0);
@@ -261,7 +268,9 @@
     const id = b.dataset.add;
     setQty(id, (cart[id] || 0) + 1);
     toast("Added to cart");
-  });
+  };
+  $("#grid").addEventListener("click", shopClick);
+  $("#new-grid").addEventListener("click", shopClick);
 
   $("#cart-items").addEventListener("click", e => {
     const b = e.target.closest("button");
@@ -384,5 +393,6 @@
 
   renderFilters();
   renderShop();
+  renderNew();
   renderCart();
 })();
