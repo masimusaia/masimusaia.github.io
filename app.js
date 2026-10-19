@@ -23,7 +23,7 @@
   /* ---------- state ---------- */
   const filters = { fandom: "", character: "", type: "" };
   let cart = {};
-  const buyer = { zone: SHOP.zones[0].id, name: "", address: "", contact: "" };
+  const buyer = { zone: SHOP.zones[0].id, name: "", address: "" };
 
   try {
     const d = JSON.parse(localStorage.getItem(KEY) || "{}");
@@ -152,7 +152,6 @@
       "Recipient details:",
       `Full name: ${buyer.name.trim() || "—"}`,
       `Address and postal code: ${buyer.address.trim() || "—"}`,
-      `Contact: ${buyer.contact.trim() || "—"}`,
       "",
       "I have read the terms.",
     ].join("\n").replace(/\u00a0/g, " ");
@@ -294,7 +293,7 @@
   $("#copy").addEventListener("click", () => copyText($("#tpl"), $("#copy"), "Copy template"));
 
   $("#zone").addEventListener("change", e => { buyer.zone = e.target.value; save(); renderCart(); });
-  [["#b-name", "name"], ["#b-address", "address"], ["#b-contact", "contact"]].forEach(([sel, key]) => {
+  [["#b-name", "name"], ["#b-address", "address"]].forEach(([sel, key]) => {
     const el = $(sel);
     el.value = buyer[key] || "";
     el.addEventListener("input", () => { buyer[key] = el.value; save(); renderTemplate(); });
