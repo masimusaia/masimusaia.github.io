@@ -1,6 +1,6 @@
 /* Shop settings. This file is rewritten by the admin site. */
 
-const ARTIST = { name: "✦ MrSoridush", tagline: "Wiwiwi wiwiwi wiwiwi" };
+const ARTIST = { name: "✦ Elli - ORidush ✦", tagline: "Wiwiwi wiwiwi wiwiwi" };
 
 const LINKS = [
   { name: "Telegram", icon: "telegram", text: "@ellikruze", url: "https://t.me/ellikruze" },
