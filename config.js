@@ -1,6 +1,6 @@
 /* Shop settings. This file is rewritten by the admin site. */
 
-const ARTIST = { name: "Masimusia", tagline: "Wiwiwi wiwiwi wiwiwi" };
+const ARTIST = { name: "Masimusaa", tagline: "Wiwiwi wiwiwi wiwiwi" };
 
 const LINKS = [
   { name: "Telegram", icon: "telegram", text: "@ellikruze", url: "https://t.me/ellikruze" },
@@ -11,9 +11,37 @@ const LINKS = [
 ];
 
 const PRODUCTS = [
-  { id: "k1", name: "Mimi with a Bow Keychain", type: "Keychains", fandom: ["Warhammer"], character: ["Konrad Curze"], price: 350, img: "img/konrad-mvezljp7.jpg", desc: "Keychain, 8–5–3 cm, acrylic" },
-  { id: "k2", name: "Lulu and Hearts Keychain", type: "Keychains", fandom: ["Warhammer"], character: ["Rogal Dorn"], price: 350, img: "img/rogal-mvezdol2.jpg", desc: "Acrylic with glitter inside, 6 cm.", isNew: true },
-  { id: "s1", name: "Mimi Sticker Pack", type: "Stickers", fandom: ["Original"], character: ["Corvus Corax"], price: 220, img: "img/stick1-mvezlxa1.jpg", desc: "sticker" }
+  {
+    id: "k1",
+    name: "Mimi with a Bow Keychain",
+    type: "Keychains",
+    fandom: ["Warhammer"],
+    character: ["Konrad Curze"],
+    price: 30,
+    img: "img/konrad-mvezljp7.jpg",
+    desc: "Keychain, 8–5–3 cm, acrylic"
+  },
+  {
+    id: "k2",
+    name: "Lulu and Hearts Keychain",
+    type: "Keychains",
+    fandom: ["Warhammer"],
+    character: ["Rogal Dorn"],
+    price: 30,
+    img: "img/rogal-mvezdol2.jpg",
+    desc: "Acrylic with glitter inside, 6 cm.",
+    isNew: true
+  },
+  {
+    id: "s1",
+    name: "Mimi Sticker Pack",
+    type: "Stickers",
+    fandom: ["Warhammer"],
+    character: ["Corvus Corax", "Konrad Curze"],
+    price: 20,
+    img: "img/stick1-mvezlxa1.jpg",
+    desc: "sticker"
+  }
 ];
 
 const CUSTOM = {
@@ -21,10 +49,9 @@ const CUSTOM = {
   status: "Custom orders are open",
   closedStatus: "Custom orders are closed for now",
   types: [
-    { id: "c-key", name: "Acrylic keychains", from: 450, minQty: 5, img: "" },
-    { id: "c-stk", name: "Vinyl stickers", from: 150, minQty: 10, img: "" },
-    { id: "c-pin", name: "Enamel pins", from: 700, minQty: 20, img: "" },
-    { id: "c-other", name: "Something else", from: null, minQty: 1, img: "" }
+    { id: "c-key", name: "Acrylic keychains", from: 450, minQty: 5, img: "img/sanguinius-mvf1kjh6.jpg" },
+    { id: "c-stk", name: "Stickers", from: 150, minQty: 10, img: "img/stick1-mvf1kxp2.jpg" },
+    { id: "c-other", name: "Something else", from: null, minQty: 10, img: "" }
   ]
 };
 
