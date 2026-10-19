@@ -1,13 +1,12 @@
 <!doctype html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Merch Shop</title>
   <meta name="description" content="Keychains and stickers by an artist">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&family=Yeseva+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&amp;family=Yeseva+One&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,11 +17,11 @@
   </header>
 
   <nav class="nav" aria-label="Site sections">
-    <a href="#links" data-tab="links">Home</a>
-    <a href="#shop" data-tab="shop">Shop</a>
-    <a href="#custom" data-tab="custom">Custom merch</a>
-    <a href="#commissions" data-tab="commissions">Commissions</a>
-    <a href="#tos" data-tab="tos">Terms</a>
+    <a href="#links" data-tab="links">HOME</a>
+    <a href="#shop" data-tab="shop">SHOP</a>
+    <a href="#custom" data-tab="custom">CUSTOM MERCH</a>
+    <a href="#commissions" data-tab="commissions">COMMISSIONS</a>
+    <a href="#tos" data-tab="tos">TERMS</a>
     <button id="cart-open" class="btn" type="button" aria-haspopup="dialog" aria-controls="cart">
       Cart <span id="cart-count" class="badge">0</span>
     </button>
@@ -36,28 +35,28 @@
 
       <div class="links-grid" id="links-list"></div>
 
-      <h2 class="sub-title">what I do</h2>
+      <h2 class="sub-title">WHAT I DO</h2>
       <div class="tiles">
-        <a class="tile tint-0" href="#shop"><strong>Shop</strong><span>Keychains and stickers in stock</span></a>
-        <a class="tile tint-1" href="#custom"><strong>Custom merch</strong><span>Your idea made into merch</span></a>
-        <a class="tile tint-2" href="#commissions"><strong>Digital commissions</strong><span>Drawings made for you</span></a>
+        <a class="tile tint-0" href="#shop"><strong>SHOP</strong><span>Keychains and stickers</span></a>
+        <a class="tile tint-1" href="#custom"><strong>CUSTOM MERCH</strong><span>Your idea made into merch</span></a>
+        <a class="tile tint-2" href="#commissions"><strong>DIGITAL COMMISSIONS</strong><span>Drawings with your characters</span></a>
       </div>
     </section>
 
     <!-- ===================== SHOP ===================== -->
-    <section id="shop" class="panel" hidden>
-      <h2 class="title">shop</h2>
+    <section id="shop" class="panel" hidden="">
+      <h2 class="title">SHOP</h2>
 
-      <div id="new-block" hidden>
-        <h3 class="sub-title" id="new-title">new</h3>
+      <div id="new-block" hidden="">
+        <h3 class="sub-title" id="new-title">NEW!</h3>
         <div class="grid" id="new-grid"></div>
       </div>
 
-      <h3 class="sub-title" id="all-title">all merch</h3>
+      <h3 class="sub-title" id="all-title">ALL MERCH</h3>
       <div class="bar">
         <span id="count" class="count" aria-live="polite"></span>
         <button id="f-toggle" class="btn ghost small" type="button" aria-expanded="false" aria-controls="filters">
-          Filters <span id="f-badge" class="badge" hidden>0</span>
+          Filters <span id="f-badge" class="badge" hidden="">0</span>
         </button>
       </div>
 
@@ -65,7 +64,7 @@
         <aside class="filters" id="filters" aria-label="Filters">
           <div class="f-head">
             <h3>filters</h3>
-            <button id="reset" class="link" type="button" hidden>Reset</button>
+            <button id="reset" class="link" type="button" hidden="">Reset</button>
           </div>
           <fieldset><legend>Merch type</legend><div class="chips" id="f-type"></div></fieldset>
           <fieldset><legend>Fandom</legend><div class="chips" id="f-fandom"></div></fieldset>
@@ -77,23 +76,23 @@
     </section>
 
     <!-- ===================== CUSTOM MERCH ===================== -->
-    <section id="custom" class="panel" hidden>
-      <h2 class="title">custom merch</h2>
-      <p class="lead wide">Want your own character, logo or artwork as merch? I make small custom batches: you send the idea, I design it and handle production and shipping.</p>
+    <section id="custom" class="panel" hidden="">
+      <h2 class="title">CUSTOM MERCH</h2>
+      <p class="lead wide">Your own character as merch</p>
       <p><span id="custom-status" class="status"></span></p>
 
       <div class="offers" id="custom-types"></div>
 
-      <h3 class="sub-title">how it works</h3>
+      <h3 class="sub-title">HOW IT WORKS</h3>
       <ol class="how" id="how"></ol>
 
-      <p class="cta" id="custom-cta">Want to order? Message me on <a data-contact href="#">Telegram</a> with the type of merch, quantity, your idea and references.</p>
+      <p class="cta" id="custom-cta">Want to order? Message me on <a data-contact="" href="#">Telegram</a> with the type of merch, quantity, your idea and references.</p>
     </section>
 
     <!-- ===================== DIGITAL COMMISSIONS (price list) ===================== -->
-    <section id="commissions" class="panel" hidden>
-      <h2 class="title">digital commissions</h2>
-      <p class="lead wide">Digital drawings of your characters, made for you. Here are the types of work and the prices.</p>
+    <section id="commissions" class="panel" hidden="">
+      <h2 class="title">DIGITAL COMMISSIONS</h2>
+      <p class="lead wide">Digital drawings of your characters</p>
       <p><span id="comm-status" class="status"></span></p>
 
       <div class="offers" id="comm-types"></div>
@@ -102,18 +101,18 @@
       <ul class="extras" id="comm-addons"></ul>
       <p class="hint" id="comm-note"></p>
 
-      <h3 class="sub-title" id="gallery-title">gallery</h3>
+      <h3 class="sub-title" id="gallery-title">GALLERY</h3>
       <div class="gallery" id="gallery"></div>
 
-      <p class="cta" id="comm-cta">Want to order? Message me on <a data-contact href="#">Telegram</a> with the type of work, a short description and references.</p>
+      <p class="cta" id="comm-cta">Want to order? Message me on <a data-contact="" href="#">Telegram</a> with the type of work, a short description and references.</p>
     </section>
 
     <!-- ===================== TERMS ===================== -->
     <!-- The terms sections come from TERMS in config.js (edited in the admin). -->
-    <section id="tos" class="panel tos" hidden>
+    <section id="tos" class="panel tos" hidden="">
       <div class="tos-intro">
-        <h2 class="title">terms</h2>
-        <p class="lead">How to order, pay and receive. If your question isn't answered here, message me on <a data-contact href="#">Telegram</a>.</p>
+        <h2 class="title">TERMS</h2>
+        <p class="lead">How to order, pay and receive. If your question isn't answered here, message me on <a data-contact="" href="#">Telegram</a>.</p>
       </div>
 
       <div class="faq" id="faq"></div>
@@ -121,12 +120,12 @@
   </main>
 
   <footer class="foot">
-    <p>Questions and orders: <a data-contact href="#">Telegram</a></p>
+    <p>Questions and orders: <a data-contact="" href="#">Telegram</a></p>
   </footer>
 
   <!-- ===================== CART ===================== -->
   <div id="overlay" class="overlay"></div>
-  <aside id="cart" class="cart" role="dialog" aria-modal="true" aria-labelledby="cart-title" inert>
+  <aside id="cart" class="cart" role="dialog" aria-modal="true" aria-labelledby="cart-title" inert="">
     <div class="cart-head">
       <h2 id="cart-title">cart</h2>
       <button id="cart-close" class="x" type="button" aria-label="Close cart">✕</button>
@@ -138,7 +137,7 @@
         <button id="cart-shop" class="btn" type="button">Browse merch</button>
       </div>
 
-      <div id="cart-body" hidden>
+      <div id="cart-body" hidden="">
         <ul id="cart-items" class="lines"></ul>
 
         <div class="field">
@@ -159,9 +158,9 @@
         <div class="field"><label for="b-contact">How to reach you</label><input id="b-contact" placeholder="@username on Telegram"></div>
 
         <h3 class="cart-sub">order template</h3>
-        <textarea id="tpl" readonly rows="12" aria-label="Order template"></textarea>
+        <textarea id="tpl" readonly="" rows="12" aria-label="Order template"></textarea>
         <button id="copy" class="btn wide" type="button">Copy template</button>
-        <p class="hint">Send the copied text to me on <a data-contact href="#">Telegram</a>. Your cart and details are stored only in your browser.</p>
+        <p class="hint">Send the copied text to me on <a data-contact="" href="#">Telegram</a>. Your cart and details are stored only in your browser.</p>
       </div>
     </div>
   </aside>
@@ -170,5 +169,6 @@
 
   <script src="config.js"></script>
   <script src="app.js"></script>
-</body>
-</html>
+
+
+</body></html>
