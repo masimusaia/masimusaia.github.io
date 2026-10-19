@@ -49,11 +49,11 @@ const CUSTOM = {
   status: "Custom orders are open",
   closedStatus: "Custom orders are closed for now",
   types: [
-    { id: "c-key", name: "Acrylic keychains", from: 450, minQty: 5, img: "" },
-    { id: "c-stk", name: "Vinyl stickers", from: 150, minQty: 10, img: "" },
+    { id: "c-key", name: "Acrylic keychains", from: 450, minQty: 5, img: "img/sanguinius-mvf63phz.jpg" },
+    { id: "c-stk", name: "Stickers", from: 150, minQty: 10, img: "img/stick1-mvf63y28.jpg" },
     { id: "c-other", name: "Something else", from: null, minQty: 1, img: "" }
   ],
-  how: ["Message me with your idea, quantity and references.", "I reply with a mockup, the final price and the timeline.", "You confirm and pay the prepayment, then I start production.", "I ship the batch and send you the tracking number."]
+  how: ["Message me with your idea, quantity and references.", "I reply with the final price and the timeline.", "You confirm and pay the prepayment, then I start production.", "I ship the batch and send you the tracking number."]
 };
 
 const COMMISSIONS = {
@@ -128,7 +128,7 @@ const TERMS = {
             ["Other countries", "14–45 days", "500 $", "none"]
           ]
         },
-        { type: "p", text: "Delivery times are approximate and depend on the postal service. I'll send the tracking number right after shipping." }
+        { type: "p", text: "Delivery cost and times are approximate and depend on the postal service. I'll send the tracking number right after shipping." }
       ]
     },
     {
