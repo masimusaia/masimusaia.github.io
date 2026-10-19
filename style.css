@@ -4,29 +4,29 @@
    ============================================================ */
 :root {
   /* ---- colours: the admin edits these; everything below uses only these variables ---- */
-  --paper: #f6eff1;       /* page background */
-  --nav: #f6eff1eb;       /* menu bar */
+  --paper: #ffffff;       /* page background */
+  --nav: #f6eff1;       /* menu bar */
   --white: #ffffff;       /* panels: cart, filters, fields */
-  --line: #2b1a2324;      /* thin lines */
-  --outline: #2b1a234d;   /* outlines of chips, fields, icons */
-  --overlay: #2b1a2359;   /* dimmed page behind the cart */
+  --line: #8f003e;      /* thin lines */
+  --outline: #cb7c93;   /* outlines of chips, fields, icons */
+  --overlay: #291922;   /* dimmed page behind the cart */
 
-  --ink: #2b1a23;         /* body text */
-  --muted: #2b1a23a8;     /* secondary text */
-  --heading: #2b1a23;     /* headings */
-  --link: #2b1a23;        /* links */
+  --ink: #cc006d;         /* body text */
+  --muted: #4a1131a8;     /* secondary text */
+  --heading: #a30057;     /* headings */
+  --link: #411b2f;        /* links */
 
-  --rose: #b8416c;        /* accent: buttons, prices, numbers */
-  --rose-soft: #ecd5de;   /* accent soft: hover, selection */
+  --rose: #f72270;        /* accent: buttons, prices, numbers */
+  --rose-soft: #febed7;   /* accent soft: hover, selection */
   --on-accent: #ffffff;   /* text on the accent */
-  --star: #b8416c;        /* twinkling stars */
+  --star: #fe4da3;        /* twinkling stars */
 
-  --dark: #2b1a23;        /* active chip, strong lines, toast */
+  --dark: #2e1020;        /* active chip, strong lines, toast */
   --on-dark: #ffffff;     /* text on dark */
-  --pill: #ffffffeb;      /* labels on photos and price tags */
+  --pill: #ffffff;      /* labels on photos and price tags */
 
   /* placeholders for missing photos */
-  --t0: #ecdfe4; --t1: #e4e0ea; --t2: #ebe0da; --t3: #dfe6ea; --t4: #e9e7d9;
+  --t0: #ecdfe4; --t1: #f4f3e6; --t2: #ecdfe4; --t3: #f4f3e6; --t4: #ecdfe4;
 
   --head: "Yeseva One", Georgia, serif;
   --body: "Onest", system-ui, sans-serif;
