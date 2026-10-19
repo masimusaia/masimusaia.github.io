@@ -13,7 +13,7 @@ const LINKS = [
 const PRODUCTS = [
   {
     id: "k1",
-    name: "Mimi with a Bow Keychain",
+    name: "акуна",
     type: "Keychains",
     fandom: ["Warhammer"],
     character: ["Konrad Curze"],
@@ -23,7 +23,7 @@ const PRODUCTS = [
   },
   {
     id: "k2",
-    name: "Lulu and Hearts Keychain",
+    name: "матата",
     type: "Keychains",
     fandom: ["Warhammer"],
     character: ["Rogal Dorn"],
@@ -34,12 +34,22 @@ const PRODUCTS = [
   },
   {
     id: "s1",
-    name: "Mimi Sticker Pack",
+    name: "значит",
     type: "Stickers",
     fandom: ["Warhammer"],
     character: ["Corvus Corax", "Konrad Curze"],
     price: 20,
     img: "img/stick1-mvezlxa1.jpg",
+    desc: "sticker"
+  },
+  {
+    id: "nmvf20z31",
+    name: "жиз без забот",
+    type: "Stickers",
+    fandom: ["Warhammer"],
+    character: ["Corvus Corax", "Rogal Dorn", "Konrad Curze"],
+    price: 20,
+    img: "img/stick3-mvf22myn.jpg",
     desc: "sticker"
   }
 ];
