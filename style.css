@@ -337,3 +337,23 @@ body.lock { overflow: hidden; }
   *, *::before, *::after { transition: none !important; }
   .panel { animation: none; }
 }
+
+/* ============ TWINKLING STARS IN THE SIDE MARGINS ============ */
+/* Only shown when the screen is wider than the content, so they never sit on top of text. */
+.stars { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; display: none; }
+@media (min-width: 1260px) { .stars { display: block; } }
+.star {
+  position: absolute; top: calc(var(--y) * 1%);
+  width: calc(var(--s) * 1px); height: calc(var(--s) * 1px);
+  background: var(--rose);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  opacity: .15;
+  animation: twinkle var(--d) ease-in-out var(--delay) infinite;
+}
+.star.l { left: calc((100vw - 1180px) / 2 * var(--x)); }
+.star.r { right: calc((100vw - 1180px) / 2 * var(--x)); }
+@keyframes twinkle {
+  0%, 100% { opacity: .12; transform: scale(.6) rotate(0deg); }
+  50% { opacity: .85; transform: scale(1.15) rotate(25deg); }
+}
+@media (prefers-reduced-motion: reduce) { .star { animation: none; opacity: .4; } }

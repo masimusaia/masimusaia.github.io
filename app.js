@@ -415,4 +415,17 @@
   renderShop();
   renderNew();
   renderCart();
+
+  /* ---------- twinkling stars in the side margins ---------- */
+  const sky = document.createElement("div");
+  sky.className = "stars";
+  sky.setAttribute("aria-hidden", "true");
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  for (let i = 0; i < 28; i++) {
+    const s = document.createElement("span");
+    s.className = "star " + (i % 2 ? "r" : "l");
+    s.style.cssText = `--x:${rnd(.1, .8).toFixed(2)};--y:${rnd(2, 96).toFixed(1)};--s:${Math.round(rnd(8, 22))};--d:${rnd(2.4, 5.5).toFixed(1)}s;--delay:-${rnd(0, 5).toFixed(1)}s`;
+    sky.append(s);
+  }
+  document.body.prepend(sky);
 })();
