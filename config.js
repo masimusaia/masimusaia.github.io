@@ -35,6 +35,9 @@ const CUSTOM = {
 };
 
 const COMMISSIONS = {
+  open: true,
+  status: "Commissions are open",
+  closedStatus: "Commissions are closed for now",
   types: [
     { id: "icon", name: "Icon", price: 80, img: "img/rogal-mvezq6v9.jpg" },
     { id: "half", name: "Half-body", price: 100, img: "img/stick2-mvezqo2q.jpg" },

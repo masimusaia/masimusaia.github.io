@@ -16,7 +16,7 @@
   const ED = window.parent !== window;
   const cf = p => ED ? ` data-cfg="${p}"` : "";
 
-  let FANDOMS = uniq(PRODUCTS.flatMap(p => arr(p.fandom)));
+  const FANDOMS = uniq(PRODUCTS.flatMap(p => arr(p.fandom)));
   const tint = p => "tint-" + Math.max(0, FANDOMS.indexOf(arr(p.fandom)[0])) % 5;
   const letter = p => esc((arr(p.character)[0] || p.name).trim().charAt(0).toUpperCase());
 
@@ -301,15 +301,10 @@
   });
 
   /* ---------- start ---------- */
-  const ICONS = {
-    telegram:  '<path d="M21.5 3.5 2.5 10.8l5.6 2.1 2 6.1 3.2-3.7 4.9 3.6z"/><path d="M8.1 12.9 21.5 3.5"/>',
-    instagram: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/>',
-    x:         '<path d="M4 4l16 16M20 4 4 20"/>',
-    boosty:    '<path d="M12 20.5s-8-4.7-8-10.6A4.4 4.4 0 0 1 12 7.4a4.4 4.4 0 0 1 8 2.5c0 5.9-8 10.6-8 10.6z"/>',
-    email:     '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6.5L20.5 7"/>',
-  };
+  $("#zone").innerHTML = SHOP.zones.map(z => `<option value="${esc(z.id)}">${esc(z.name)}</option>`).join("");
+  $("#zone").value = buyer.zone;
 
-  // texts of terms and "how it works" may contain HTML, e.g. a link
+  /* ---------- terms and how it works: texts may contain HTML, e.g. a link ---------- */
   const tableHtml = t => {
     const rows = (t.rows || []).filter(r => r && r.length), head = t.header !== false && rows.length > 1;
     const tr = (r, tag) => `<tr>${r.map(c => `<${tag}${tag === "th" ? ' scope="col"' : ""}>${c}</${tag}>`).join("")}</tr>`;
@@ -319,107 +314,74 @@
     b.type === "ol" || b.type === "ul" ? `<${b.type}>${(b.items || []).map(t => `<li>${t}</li>`).join("")}</${b.type}>` :
     b.type === "table" ? tableHtml(b) :
     `<p>${b.text || ""}</p>`;
+  $("#faq").innerHTML = TERMS.items.map((it, i) =>
+    `<details${it.expanded ? " open" : ""}><summary>${esc(it.title)}</summary><div class="ans"${cf("TERMS.items." + i)}>${(it.blocks || []).map(blockHtml).join("")}</div></details>`).join("");
+  $("#how").innerHTML = CUSTOM.how.map(t => `<li>${t}</li>`).join("");
 
+  document.querySelectorAll("[data-contact]").forEach(a => {
+    a.href = SHOP.contact.url;
+    a.textContent = SHOP.contact.name + " " + SHOP.contact.text;
+    a.target = "_blank";
+    a.rel = "noopener";
+  });
+
+  /* ---------- home: links ---------- */
+  $("#artist-name").textContent = ARTIST.name;
+  $("#artist-tagline").textContent = ARTIST.tagline;
+  if (ED) { $("#artist-name").dataset.cfg = "ARTIST.name"; $("#artist-tagline").dataset.cfg = "ARTIST.tagline"; }
+  const ICONS = {
+    telegram:  '<path d="M21.5 3.5 2.5 10.8l5.6 2.1 2 6.1 3.2-3.7 4.9 3.6z"/><path d="M8.1 12.9 21.5 3.5"/>',
+    instagram: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/>',
+    x:         '<path d="M4 4l16 16M20 4 4 20"/>',
+    boosty:    '<path d="M12 20.5s-8-4.7-8-10.6A4.4 4.4 0 0 1 12 7.4a4.4 4.4 0 0 1 8 2.5c0 5.9-8 10.6-8 10.6z"/>',
+    email:     '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6.5L20.5 7"/>',
+  };
+  $("#links-list").innerHTML = LINKS.map((l, i) => {
+    const label = esc(l.name + (l.text ? ": " + l.text : ""));
+    const art = ICONS[l.icon]
+      ? `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[l.icon]}</svg>`
+      : `<span class="ltr" aria-hidden="true">${esc(l.name.trim().charAt(0).toUpperCase())}</span>`;
+    return `<a class="link-card"${cf("LINKS." + i)} href="${esc(l.url)}" aria-label="${label}" title="${label}"${/^https?:/.test(l.url) ? ' target="_blank" rel="noopener"' : ""}>${art}</a>`;
+  }).join("");
+
+  /* ---------- custom merch and commissions ---------- */
   function setStatus(sel, cfg) {
     const el = $(sel);
     el.textContent = (cfg.open ? "● " : "○ ") + (cfg.open ? cfg.status : cfg.closedStatus);
     el.classList.toggle("closed", !cfg.open);
   }
 
-  function cleanCart() {
-    for (const id in cart) {
-      const p = byId(id);
-      if (!p || p.soldOut || !(cart[id] > 0)) delete cart[id];
-    }
-    if (!SHOP.zones.some(z => z.id === buyer.zone)) buyer.zone = SHOP.zones[0].id;
-  }
-
-  // Every part draws one piece of the page from the settings. The admin preview changes the settings
-  // in place and calls the matching parts again, so the page does not reload while it is edited.
-  const R = {};
-
-  R.zones = () => {
-    cleanCart();
-    $("#zone").innerHTML = SHOP.zones.map(z => `<option value="${esc(z.id)}">${esc(z.name)}</option>`).join("");
-    $("#zone").value = buyer.zone;
-  };
-
-  R.artist = () => {
-    $("#artist-name").textContent = ARTIST.name;
-    $("#artist-tagline").textContent = ARTIST.tagline;
-    if (ED) { $("#artist-name").dataset.cfg = "ARTIST.name"; $("#artist-tagline").dataset.cfg = "ARTIST.tagline"; }
-  };
-
-  R.links = () => {
-    $("#links-list").innerHTML = LINKS.map((l, i) => {
-      const label = esc(l.name + (l.text ? ": " + l.text : ""));
-      const art = ICONS[l.icon]
-        ? `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[l.icon]}</svg>`
-        : `<span class="ltr" aria-hidden="true">${esc(l.name.trim().charAt(0).toUpperCase())}</span>`;
-      return `<a class="link-card"${cf("LINKS." + i)} href="${esc(l.url)}" aria-label="${label}" title="${label}"${/^https?:/.test(l.url) ? ' target="_blank" rel="noopener"' : ""}>${art}</a>`;
-    }).join("");
-  };
-
-  R.custom = () => {
-    setStatus("#custom-status", CUSTOM);
-    $("#custom-cta").hidden = !CUSTOM.open;
-    $("#custom-types").innerHTML = CUSTOM.types.map((t, i) => `
+  // custom merch
+  setStatus("#custom-status", CUSTOM);
+  $("#custom-cta").hidden = !CUSTOM.open;
+  $("#custom-types").innerHTML = CUSTOM.types.map((t, i) => `
     <article class="offer tint-${i % 5}"${cf("CUSTOM.types." + i)}>
       <h3>${esc(t.name)}</h3>
       <p class="price">${t.from == null ? "ask me" : "from " + money(t.from)}</p>
       <p class="meta">Minimum: ${t.minQty} pcs</p>
       ${t.img ? `<img class="ex" src="${esc(t.img)}" alt="${esc(t.name)} example" loading="lazy">` : ""}
     </article>`).join("");
-    $("#how").innerHTML = CUSTOM.how.map(t => `<li>${t}</li>`).join("");
-  };
 
-  R.commissions = () => {
-    $("#comm-types").innerHTML = COMMISSIONS.types.map((t, i) => `
+  // digital commissions: status and price list
+  setStatus("#comm-status", COMMISSIONS);
+  $("#comm-cta").hidden = !COMMISSIONS.open;
+  $("#comm-types").innerHTML = COMMISSIONS.types.map((t, i) => `
     <article class="offer tint-${(i + 2) % 5}"${cf("COMMISSIONS.types." + i)}>
       <h3>${esc(t.name)}</h3>
       <p class="price">${money(t.price)}</p>
       ${t.img ? `<img class="ex" src="${esc(t.img)}" alt="${esc(t.name)} example" loading="lazy">` : ""}
     </article>`).join("");
-    $("#comm-addons").innerHTML = COMMISSIONS.addons.map((x, i) =>
-      `<li${cf("COMMISSIONS.addons." + i)}><span>${esc(x.name)}</span><b>+${x.percent ? nf.format(x.price) + "%" : money(x.price)}</b></li>`).join("");
-    $("#comm-note").textContent = COMMISSIONS.note || "";
-    if (ED) $("#comm-note").dataset.cfg = "COMMISSIONS.note";
-  };
+  $("#comm-addons").innerHTML = COMMISSIONS.addons.map((x, i) =>
+    `<li${cf("COMMISSIONS.addons." + i)}><span>${esc(x.name)}</span><b>+${x.percent ? nf.format(x.price) + "%" : money(x.price)}</b></li>`).join("");
+  $("#comm-note").textContent = COMMISSIONS.note || "";
+  if (ED) $("#comm-note").dataset.cfg = "COMMISSIONS.note";
 
-  R.gallery = () => {
-    $("#gallery-title").hidden = !GALLERY.length;
-    $("#gallery").innerHTML = GALLERY.map((g, i) => g.img
-      ? `<div class="art"${cf("GALLERY." + i)}><img src="${esc(g.img)}" alt="${esc(g.alt || "")}" loading="lazy" decoding="async"></div>`
-      : `<div class="art tint-${i % 5}"${cf("GALLERY." + i)} style="aspect-ratio:${Number(g.ratio) || 1}" role="img" aria-label="${esc(g.alt || "Artwork placeholder")}"></div>`
-    ).join("");
-  };
-
-  R.terms = () => {
-    const was = [...document.querySelectorAll("#faq details")].map(d => d.open);
-    $("#faq").innerHTML = TERMS.items.map((it, i) =>
-      `<details${it.expanded ? " open" : ""}><summary>${esc(it.title)}</summary><div class="ans"${cf("TERMS.items." + i)}>${(it.blocks || []).map(blockHtml).join("")}</div></details>`).join("");
-    document.querySelectorAll("#faq details").forEach((d, i) => { if (i < was.length) d.open = was[i]; });
-  };
-
-  R.products = () => {
-    cleanCart();
-    FANDOMS = uniq(PRODUCTS.flatMap(p => arr(p.fandom)));
-    if (filters.fandom && !FANDOMS.includes(filters.fandom)) filters.fandom = "";
-    if (filters.type && !PRODUCTS.some(p => p.type === filters.type)) filters.type = "";
-    renderFilters();
-    renderShop();
-    renderNew();
-    renderCart();
-  };
-
-  R.contacts = () => {
-    document.querySelectorAll("[data-contact]").forEach(a => {
-      a.href = SHOP.contact.url;
-      a.textContent = SHOP.contact.name + " " + SHOP.contact.text;
-      a.target = "_blank";
-      a.rel = "noopener";
-    });
-  };
+  // gallery
+  $("#gallery-title").hidden = !GALLERY.length;
+  $("#gallery").innerHTML = GALLERY.map((g, i) => g.img
+    ? `<div class="art"${cf("GALLERY." + i)}><img src="${esc(g.img)}" alt="${esc(g.alt || "")}" loading="lazy" decoding="async"></div>`
+    : `<div class="art tint-${i % 5}"${cf("GALLERY." + i)} style="aspect-ratio:${Number(g.ratio) || 1}" role="img" aria-label="${esc(g.alt || "Artwork placeholder")}"></div>`
+  ).join("");
 
   /* ---------- cards: one visible at a time ---------- */
   const stage = $("#stage");
@@ -450,12 +412,8 @@
   window.addEventListener("hashchange", () => showPanel(location.hash.slice(1), true));
   showPanel(location.hash.slice(1), false);
 
-  Object.keys(R).forEach(k => R[k]());
-
-  /* ---------- hook for the admin preview ---------- */
-  const AFTER = { ARTIST: ["artist"], LINKS: ["links"], PRODUCTS: ["products"], CUSTOM: ["custom", "contacts"], COMMISSIONS: ["commissions"], GALLERY: ["gallery"], TERMS: ["terms", "contacts"], html: ["contacts"] };
-  window.__shop = {
-    render: name => (AFTER[name] || Object.keys(R)).forEach(k => R[k]()),
-    show: id => showPanel(id, false)
-  };
+  renderFilters();
+  renderShop();
+  renderNew();
+  renderCart();
 })();
