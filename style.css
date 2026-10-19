@@ -1,9 +1,4 @@
-/* ============================================================
-   V2: quiet. Soft blush-grey page, one dusty rose accent,
-   Yeseva One only for headings, flat product photos, thin lines.
-   ============================================================ */
 :root {
-  /* ---- colours: the admin edits these; everything below uses only these variables ---- */
   --paper: #ffffff;       /* page background */
   --nav: #f6eff1;       /* menu bar */
   --white: #ffffff;       /* panels: cart, filters, fields */
@@ -25,7 +20,6 @@
   --on-dark: #ffffff;     /* text on dark */
   --pill: #ffffff;      /* labels on photos and price tags */
 
-  /* placeholders for missing photos */
   --t0: #ecdfe4; --t1: #f4f3e6; --t2: #ecdfe4; --t3: #f4f3e6; --t4: #ecdfe4;
 
   --head: "Yeseva One", Georgia, serif;
@@ -46,7 +40,6 @@ a:hover { color: var(--rose); }
 
 .wrap { max-width: 1180px; margin: 0 auto; padding: 0 var(--pad); }
 
-/* headings share one colour */
 .title, .sub-title, .tile strong, .item h3, .offer h3, .faq summary, .cart-head h2, .cart-sub, .f-head h3, .sum .total { color: var(--heading); }
 
 /* ============ HEADER AND NAVIGATION ============ */
@@ -98,7 +91,7 @@ a:hover { color: var(--rose); }
 .lead { margin: 0; max-width: 40ch; color: var(--muted); font-size: 1.05rem; }
 .lead.wide { max-width: 60ch; }
 
-/* ============ PAGES: no boxes, content sits on the page ============ */
+/* ============ PAGES ============ */
 .stage { padding-top: 36px; padding-bottom: 64px; scroll-margin-top: 70px; }
 .panel { animation: panel-in .25s ease; }
 @keyframes panel-in { from { opacity: 0; } to { opacity: 1; } }
@@ -330,7 +323,6 @@ body.lock { overflow: hidden; }
 
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-/* ============ TABLET AND PHONE ============ */
 @media (max-width: 860px) {
   .shop-layout { grid-template-columns: 1fr; gap: 0; }
   .filters { display: none; position: static; margin-bottom: 28px; padding: 18px; background: var(--white); border-radius: 8px; }
@@ -355,8 +347,6 @@ body.lock { overflow: hidden; }
   .panel { animation: none; }
 }
 
-/* ============ TWINKLING STARS IN THE SIDE MARGINS ============ */
-/* Only shown when the screen is wider than the content, so they never sit on top of text. */
 .stars { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; display: none; }
 @media (min-width: 1260px) { .stars { display: block; } }
 .star {
@@ -374,3 +364,84 @@ body.lock { overflow: hidden; }
   50% { opacity: .85; transform: scale(1.15) rotate(25deg); }
 }
 @media (prefers-reduced-motion: reduce) { .star { animation: none; opacity: .4; } }
+
+/* ============================================================
+   MOBILE VERSION
+   ============================================================ */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { overflow-x: hidden; }
+img { max-width: 100%; }
+
+.offers { grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); }
+
+@media (hover: none) {
+  .btn:hover { background: var(--rose); border-color: var(--rose); color: var(--on-accent); }
+  .btn.ghost:hover { background: transparent; color: var(--ink); border-color: var(--dark); }
+  .chip:hover, .x:hover, .step button:hover { background: transparent; }
+  .chip[aria-pressed="true"]:hover { background: var(--dark); }
+  .link-card:hover { color: var(--ink); background: transparent; border-color: var(--outline); }
+  .tile:hover { filter: none; }
+}
+
+@media (max-width: 860px) {
+  .stage { padding-top: 24px; padding-bottom: 48px; }
+  .sub-title { margin-top: 36px; }
+  .faq summary { padding: 16px 0; font-size: 1.1rem; }
+  .filters { margin-bottom: 20px; }
+  .chip { padding: 10px 14px; }
+}
+
+@media (max-width: 520px) {
+  :root { --pad: 16px; }
+  html { scroll-padding-top: 64px; }
+
+  .nav { gap: 14px; padding: 10px var(--pad); font-size: .9rem; }
+  .nav .btn {
+    position: sticky; right: 0; margin-left: auto;
+    padding: 10px 16px; font-size: .9rem;
+    box-shadow: -14px 0 12px -2px var(--nav);
+  }
+
+  .title { font-size: clamp(2rem, 10vw, 2.8rem); }
+  .hero .title { font-size: clamp(2.6rem, 13vw, 4rem); }
+  .lead { font-size: 1rem; }
+  .links-grid { gap: 8px; margin-top: 24px; }
+  .link-card { width: 46px; height: 46px; }
+
+  .tiles { grid-template-columns: 1fr; }
+  .tile { min-height: 110px; gap: 16px; padding: 16px 18px; }
+
+  .grid { gap: 24px 12px; }
+  .actions { flex-wrap: wrap; }
+  .actions .btn { flex: 1 1 100%; padding: 12px 8px; font-size: .85rem; }
+  .actions .x { width: 100%; height: 38px; border-radius: 999px; }
+  .pill { font-size: .72rem; padding: 3px 8px; }
+  .desc { font-size: .85rem; }
+
+  .offer .price { font-size: 1rem; }
+  .gallery { column-gap: 10px; }
+  .art { margin-bottom: 10px; }
+  .how { grid-template-columns: 1fr; }
+  .cta { padding: 16px; }
+  .extras li { font-size: .95rem; }
+
+  .cart { width: 100%; }
+  .cart-head { padding: calc(16px + env(safe-area-inset-top)) 16px 10px; }
+  .cart-scroll { padding: 0 16px calc(32px + env(safe-area-inset-bottom)); }
+  .line { grid-template-columns: 56px 1fr auto; gap: 10px; }
+  .th { width: 56px; height: 56px; }
+  .x { width: 42px; height: 42px; }
+  .line .x { width: 36px; height: 36px; font-size: .85rem; }
+  .step { gap: 10px; }
+  .step button { width: 34px; height: 34px; font-size: 1.1rem; }
+  .field input, .field select, .field textarea { font-size: 16px; }
+  #tpl { font-size: 14px; }
+
+  .toast { bottom: calc(16px + env(safe-area-inset-bottom)); }
+  .foot { padding-bottom: calc(32px + env(safe-area-inset-bottom)); }
+}
+
+@media (max-width: 360px) {
+  .grid { grid-template-columns: 1fr; }
+  .nav { gap: 12px; }
+}
