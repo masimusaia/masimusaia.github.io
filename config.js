@@ -122,10 +122,9 @@ const TERMS = {
           type: "table",
           header: true,
           rows: [
-            ["Destination", "Time", "Shipping", "Free shipping"],
-            ["Russia", "5–14 days", "150 $", "from 300 $"],
-            ["Belarus, Kazakhstan", "10–25 days", "300 $", "none"],
-            ["Other countries", "14–45 days", "500 $", "none"]
+            ["Destination", "Time", "Shipping"],
+            ["Russia", "5–14 days", "150 $"],
+            ["Other countries", "14–45 days", "500 $"]
           ]
         },
         { type: "p", text: "Delivery cost and times are approximate and depend on the postal service. I'll send the tracking number right after shipping." }
