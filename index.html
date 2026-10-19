@@ -80,28 +80,13 @@
 
       <h3 class="sub-title">how it works</h3>
       <ol class="how">
-        <li>Send me a request using the form below.</li>
+        <li>Message me with your idea, quantity and references.</li>
         <li>I reply with a mockup, the final price and the timeline.</li>
         <li>You confirm and pay the prepayment, then I start production.</li>
         <li>I ship the batch and send you the tracking number.</li>
       </ol>
 
-      <div class="request">
-        <div id="c-form">
-          <h3>request form</h3>
-          <div class="field"><label for="c-type">What do you want</label><select id="c-type"></select></div>
-          <div class="field"><label for="c-qty">Quantity</label><input id="c-qty" type="number" min="1" inputmode="numeric"><span class="hint" id="c-hint"></span></div>
-          <div class="field"><label for="c-desc">Your idea</label><textarea id="c-desc" rows="4" placeholder="Characters, size, colors, anything important"></textarea></div>
-          <div class="field"><label for="c-refs">Reference links</label><input id="c-refs" placeholder="Links to images or a folder"></div>
-          <div class="field"><label for="c-contact">How to reach you</label><input id="c-contact" placeholder="@username on Telegram"></div>
-        </div>
-        <div>
-          <h3>your request</h3>
-          <textarea id="c-tpl" class="tpl" readonly rows="12" aria-label="Custom merch request"></textarea>
-          <button id="c-copy" class="btn wide" type="button">Copy request</button>
-          <p class="hint">Send the copied text to me on <a data-contact href="#">Telegram</a>. Nothing is sent from this site.</p>
-        </div>
-      </div>
+      <p class="cta" id="custom-cta">Want to order? Message me on <a data-contact href="#">Telegram</a> with the type of merch, quantity, your idea and references.</p>
     </section>
 
     <!-- ===================== DIGITAL COMMISSIONS (price list) ===================== -->
@@ -114,6 +99,9 @@
       <h3 class="sub-title">extras</h3>
       <ul class="extras" id="comm-addons"></ul>
       <p class="hint" id="comm-note"></p>
+
+      <h3 class="sub-title" id="gallery-title">gallery</h3>
+      <div class="gallery" id="gallery"></div>
 
       <p class="cta">Want to order? Message me on <a data-contact href="#">Telegram</a> with the type of work, a short description and references.</p>
     </section>

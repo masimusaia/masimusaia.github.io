@@ -76,7 +76,10 @@
       <h3>${esc(p.name)}</h3>
       <p class="meta">${esc(p.fandom)}, ${esc(p.character)}</p>
       ${p.desc ? `<p class="desc">${esc(p.desc)}</p>` : ""}
-      <button type="button" class="btn${q ? "" : " ghost"}" data-add="${esc(p.id)}"${p.soldOut ? " disabled" : ""}>${p.soldOut ? "Sold out" : addLabel(q)}</button>
+      <div class="actions">
+        <button type="button" class="btn${q ? "" : " ghost"}" data-add="${esc(p.id)}"${p.soldOut ? " disabled" : ""}>${p.soldOut ? "Sold out" : addLabel(q)}</button>
+        ${p.soldOut ? "" : `<button type="button" class="x" data-rm="${esc(p.id)}" aria-label="Remove from cart" title="Remove from cart"${q ? "" : " hidden"}>✕</button>`}
+      </div>
     </article>`;
   }
 
@@ -102,6 +105,7 @@
       b.textContent = addLabel(q);
       b.classList.toggle("ghost", !q);
     });
+    document.querySelectorAll("[data-rm]").forEach(b => { b.hidden = !(cart[b.dataset.rm] > 0); });
   }
 
   /* ---------- cart: calculations ---------- */
@@ -246,6 +250,12 @@
   });
 
   $("#grid").addEventListener("click", e => {
+    const rm = e.target.closest("[data-rm]");
+    if (rm) {
+      setQty(rm.dataset.rm, 0);
+      toast("Removed from cart");
+      return;
+    }
     const b = e.target.closest("[data-add]");
     if (!b || b.disabled) return;
     const id = b.dataset.add;
@@ -293,58 +303,37 @@
   /* ---------- home: links ---------- */
   $("#artist-name").textContent = ARTIST.name;
   $("#artist-tagline").textContent = ARTIST.tagline;
-  $("#links-list").innerHTML = LINKS.map(l =>
-    `<a class="link-card" href="${esc(l.url)}"${/^https?:/.test(l.url) ? ' target="_blank" rel="noopener"' : ""}>
-      <span><strong>${esc(l.name)}</strong><span class="note">${esc(l.note || "")}</span></span>
-      <span class="go">${esc(l.text)} ↗</span>
-    </a>`).join("");
+  const ICONS = {
+    telegram:  '<path d="M21.5 3.5 2.5 10.8l5.6 2.1 2 6.1 3.2-3.7 4.9 3.6z"/><path d="M8.1 12.9 21.5 3.5"/>',
+    instagram: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/>',
+    x:         '<path d="M4 4l16 16M20 4 4 20"/>',
+    boosty:    '<path d="M12 20.5s-8-4.7-8-10.6A4.4 4.4 0 0 1 12 7.4a4.4 4.4 0 0 1 8 2.5c0 5.9-8 10.6-8 10.6z"/>',
+    email:     '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6.5L20.5 7"/>',
+  };
+  $("#links-list").innerHTML = LINKS.map(l => {
+    const label = esc(l.name + (l.text ? ": " + l.text : ""));
+    const art = ICONS[l.icon]
+      ? `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[l.icon]}</svg>`
+      : `<span class="ltr" aria-hidden="true">${esc(l.name.trim().charAt(0).toUpperCase())}</span>`;
+    return `<a class="link-card" href="${esc(l.url)}" aria-label="${label}" title="${label}"${/^https?:/.test(l.url) ? ' target="_blank" rel="noopener"' : ""}>${art}</a>`;
+  }).join("");
 
   /* ---------- custom merch and commissions ---------- */
-  const val = id => $("#" + id).value.trim() || "—";
-
   function setStatus(sel, cfg) {
     const el = $(sel);
     el.textContent = (cfg.open ? "● " : "○ ") + (cfg.open ? cfg.status : cfg.closedStatus);
     el.classList.toggle("closed", !cfg.open);
   }
 
-  function requestForm(prefix, cfg, build) {
-    const ta = $("#" + prefix + "-tpl"), btn = $("#" + prefix + "-copy");
-    const render = () => { ta.value = build(); };
-    $("#" + prefix + "-form").addEventListener("input", render);
-    $("#" + prefix + "-form").addEventListener("change", render);
-    btn.disabled = !cfg.open;
-    btn.addEventListener("click", () => copyText(ta, btn, "Copy request"));
-    render();
-  }
-
   // custom merch
   setStatus("#custom-status", CUSTOM);
+  $("#custom-cta").hidden = !CUSTOM.open;
   $("#custom-types").innerHTML = CUSTOM.types.map((t, i) => `
     <article class="offer tint-${i % 5}">
       <h3>${esc(t.name)}</h3>
       <p class="price">${t.from == null ? "ask me" : "from " + money(t.from)}</p>
-      <p>${esc(t.desc)}</p>
-      <p class="meta">Minimum: ${t.minQty} pcs<br>Time: ${esc(t.time)}</p>
+      <p class="meta">Minimum: ${t.minQty} pcs</p>
     </article>`).join("");
-  $("#c-type").innerHTML = CUSTOM.types.map(t => `<option value="${esc(t.id)}">${esc(t.name)}</option>`).join("");
-
-  requestForm("c", CUSTOM, () => {
-    const t = CUSTOM.types.find(x => x.id === $("#c-type").value) || CUSTOM.types[0];
-    $("#c-qty").min = t.minQty;
-    $("#c-hint").textContent = `Minimum for this item: ${t.minQty} pcs.`;
-    return [
-      "Hi! I'd like to request custom merch.",
-      "",
-      `Type: ${t.name}`,
-      `Quantity: ${val("c-qty")}`,
-      `Idea: ${val("c-desc")}`,
-      `References: ${val("c-refs")}`,
-      `Contact: ${val("c-contact")}`,
-      "",
-      "I have read the terms.",
-    ].join("\n");
-  });
 
   // digital commissions: price list
   $("#comm-types").innerHTML = COMMISSIONS.types.map((t, i) => `
@@ -352,12 +341,17 @@
       ${t.img ? `<img class="ex" src="${esc(t.img)}" alt="${esc(t.name)} example" loading="lazy">` : ""}
       <h3>${esc(t.name)}</h3>
       <p class="price">${money(t.price)}</p>
-      <p>${esc(t.desc)}</p>
-      <p class="meta">Time: ${esc(t.time)}</p>
     </article>`).join("");
   $("#comm-addons").innerHTML = COMMISSIONS.addons.map(x =>
     `<li><span>${esc(x.name)}</span><b>+${money(x.price)}</b></li>`).join("");
   $("#comm-note").textContent = COMMISSIONS.note || "";
+
+  // gallery
+  $("#gallery-title").hidden = !GALLERY.length;
+  $("#gallery").innerHTML = GALLERY.map((g, i) => g.img
+    ? `<div class="art"><img src="${esc(g.img)}" alt="${esc(g.alt || "")}" loading="lazy" decoding="async"></div>`
+    : `<div class="art tint-${i % 5}" style="aspect-ratio:${Number(g.ratio) || 1}" role="img" aria-label="${esc(g.alt || "Artwork placeholder")}"></div>`
+  ).join("");
 
   /* ---------- cards: one visible at a time ---------- */
   const stage = $("#stage");

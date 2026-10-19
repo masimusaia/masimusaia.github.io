@@ -57,13 +57,16 @@ const ARTIST = {
   tagline: "Illustrator and merch maker. Original characters, fan art, acrylic keychains and stickers. Open for custom merch and digital commissions.",
 };
 
-/* name — label, text — what is shown on the right, url — where it leads, note — small caption */
+/* name — label (shown on hover and read by screen readers)
+   text — handle (shown on hover)
+   url  — where it leads
+   icon — telegram | instagram | x | boosty | email (any other value shows the first letter of the name) */
 const LINKS = [
-  { name: "Telegram",    text: "@your_nick",        url: "https://t.me/your_nick",           note: "Fastest way to reach me" },
-  { name: "Instagram",   text: "@your_nick",        url: "https://instagram.com/your_nick",  note: "Art and shop updates" },
-  { name: "X / Twitter", text: "@your_nick",        url: "https://x.com/your_nick",          note: "Sketches and news" },
-  { name: "Boosty",      text: "your_nick",         url: "https://boosty.to/your_nick",      note: "Behind the scenes and early access" },
-  { name: "Email",       text: "hello@example.com", url: "mailto:hello@example.com",         note: "Business inquiries" },
+  { name: "Telegram",    icon: "telegram",  text: "@your_nick",        url: "https://t.me/your_nick" },
+  { name: "Instagram",   icon: "instagram", text: "@your_nick",        url: "https://instagram.com/your_nick" },
+  { name: "X / Twitter", icon: "x",         text: "@your_nick",        url: "https://x.com/your_nick" },
+  { name: "Boosty",      icon: "boosty",    text: "your_nick",         url: "https://boosty.to/your_nick" },
+  { name: "Email",       icon: "email",     text: "hello@example.com", url: "mailto:hello@example.com" },
 ];
 
 /* ============================================================
@@ -78,25 +81,25 @@ const CUSTOM = {
   status: "Taking custom orders",
   closedStatus: "Custom orders are closed for now",
   types: [
-    { id: "c-key",   name: "Acrylic keychains", from: 450, minQty: 5,  time: "2–4 weeks", desc: "Double-sided print, up to 7 cm." },
-    { id: "c-stk",   name: "Vinyl stickers",    from: 150, minQty: 10, time: "1–3 weeks", desc: "Waterproof, die-cut or sheets." },
-    { id: "c-pin",   name: "Enamel pins",       from: 700, minQty: 20, time: "4–6 weeks", desc: "Hard enamel, metal backing." },
-    { id: "c-other", name: "Something else",    from: null, minQty: 1, time: "ask me",    desc: "Standees, charms, prints. Tell me your idea." },
+    { id: "c-key",   name: "Acrylic keychains", from: 450,  minQty: 5 },
+    { id: "c-stk",   name: "Vinyl stickers",    from: 150,  minQty: 10 },
+    { id: "c-pin",   name: "Enamel pins",       from: 700,  minQty: 20 },
+    { id: "c-other", name: "Something else",    from: null, minQty: 1 },
   ],
 };
 
 /* ============================================================
    DIGITAL COMMISSIONS (price list, no request form)
-   types  — name, price, time, desc; img is optional (path to an example picture)
+   types  — name, price; img is optional (path to an example picture)
    addons — optional extras with a fixed price
    note   — small line under the extras ("" to hide)
    ============================================================ */
 const COMMISSIONS = {
   types: [
-    { id: "icon", name: "Icon",      price: 1500, time: "3–5 days",  desc: "Head and shoulders, flat color.",           img: "" },
-    { id: "half", name: "Half-body", price: 2500, time: "5–7 days",  desc: "Waist up, full color and shading.",         img: "" },
-    { id: "full", name: "Full body", price: 3500, time: "7–10 days", desc: "Full figure, full color and shading.",      img: "" },
-    { id: "chib", name: "Chibi",     price: 1200, time: "3–5 days",  desc: "Cute small version, simple background.",    img: "" },
+    { id: "icon", name: "Icon",      price: 1500, img: "" },
+    { id: "half", name: "Half-body", price: 2500, img: "" },
+    { id: "full", name: "Full body", price: 3500, img: "" },
+    { id: "chib", name: "Chibi",     price: 1200, img: "" },
   ],
   addons: [
     { name: "Simple background",    price: 500 },
@@ -105,3 +108,22 @@ const COMMISSIONS = {
   ],
   note: "Prices are for personal use. Commercial use is discussed separately.",
 };
+
+/* ============================================================
+   GALLERY (commissions page, Pinterest-style tiles)
+   img   — path to the picture, e.g. "img/art-01.jpg". Pictures keep their own proportions.
+   alt   — short description for screen readers (can be "")
+   ratio — width / height of the placeholder shown while img is empty (0.75 = portrait, 1.4 = landscape)
+   ============================================================ */
+const GALLERY = [
+  { img: "", alt: "", ratio: 0.75 },
+  { img: "", alt: "", ratio: 1.1 },
+  { img: "", alt: "", ratio: 0.6 },
+  { img: "", alt: "", ratio: 1 },
+  { img: "", alt: "", ratio: 0.85 },
+  { img: "", alt: "", ratio: 1.4 },
+  { img: "", alt: "", ratio: 0.7 },
+  { img: "", alt: "", ratio: 0.9 },
+  { img: "", alt: "", ratio: 0.65 },
+  { img: "", alt: "", ratio: 1.2 },
+];
