@@ -304,9 +304,19 @@
   $("#zone").innerHTML = SHOP.zones.map(z => `<option value="${esc(z.id)}">${esc(z.name)}</option>`).join("");
   $("#zone").value = buyer.zone;
 
-  $("#tos-zones").innerHTML = SHOP.zones.map((z, i) =>
-    `<tr${cf("SHOP.zones." + i)}><th scope="row">${esc(z.name)}</th><td>${esc(z.days)}</td><td>${money(z.base)}</td><td>${z.freeFrom ? "from " + money(z.freeFrom) : "none"}</td></tr>`
-  ).join("");
+  /* ---------- terms and how it works: texts may contain HTML, e.g. a link ---------- */
+  const tableHtml = t => {
+    const rows = (t.rows || []).filter(r => r && r.length), head = t.header !== false && rows.length > 1;
+    const tr = (r, tag) => `<tr>${r.map(c => `<${tag}${tag === "th" ? ' scope="col"' : ""}>${c}</${tag}>`).join("")}</tr>`;
+    return `<div class="table-scroll"><table>${head ? `<thead>${tr(rows[0], "th")}</thead>` : ""}<tbody>${rows.slice(head ? 1 : 0).map(r => tr(r, "td")).join("")}</tbody></table></div>`;
+  };
+  const blockHtml = b =>
+    b.type === "ol" || b.type === "ul" ? `<${b.type}>${(b.items || []).map(t => `<li>${t}</li>`).join("")}</${b.type}>` :
+    b.type === "table" ? tableHtml(b) :
+    `<p>${b.text || ""}</p>`;
+  $("#faq").innerHTML = TERMS.items.map((it, i) =>
+    `<details${it.expanded ? " open" : ""}><summary>${esc(it.title)}</summary><div class="ans"${cf("TERMS.items." + i)}>${(it.blocks || []).map(blockHtml).join("")}</div></details>`).join("");
+  $("#how").innerHTML = CUSTOM.how.map(t => `<li>${t}</li>`).join("");
 
   document.querySelectorAll("[data-contact]").forEach(a => {
     a.href = SHOP.contact.url;

@@ -217,14 +217,14 @@ a:hover { color: var(--rose); }
 .faq details[open] summary::after { content: "−"; }
 .ans { padding: 0 0 24px; max-width: 64ch; }
 .ans p { margin: 0 0 12px; }
-.ans ol { margin: 0 0 12px; padding-left: 1.3em; }
+.ans ol, .ans ul { margin: 0 0 12px; padding-left: 1.3em; }
 .ans li { margin-bottom: 4px; }
 
 .table-scroll { overflow-x: auto; margin: 14px 0; }
 table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: .92rem; }
 th, td { padding: 10px 14px 10px 0; text-align: left; border-bottom: 1px solid var(--line); }
 thead th { font-weight: 700; border-bottom: 1px solid var(--ink); }
-tbody th { font-weight: 700; }
+tbody th, tbody td:first-child { font-weight: 700; }
 
 .foot { padding: 22px var(--pad) 44px; border-top: 1px solid var(--line); color: var(--muted); }
 .foot p { max-width: 1180px; margin: 0 auto; }
