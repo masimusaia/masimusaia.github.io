@@ -4,7 +4,7 @@ const ARTIST = { name: "✦ Elli - ORidush ✦", tagline: "Hi! I’m Ellie, and 
 
 const LINKS = [
   { name: "Telegram", icon: "telegram", text: "@ellikruze", url: "https://t.me/ellikruze" },
-  { name: "Email", icon: "email", text: "mrsoridush@gmail.com", url: "mrsoridush@gmail.com" },
+  { name: "Email", icon: "email", text: "Email", url: "mrsoridush@gmail.com" },
   { name: "Tumblr", icon: "Tumblr", text: "elli-oridush-art", url: "https://www.tumblr.com/blog/elli-oridush-art" }
 ];
 
