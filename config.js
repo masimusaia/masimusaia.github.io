@@ -1,6 +1,6 @@
 /* Shop settings. This file is rewritten by the admin site. */
 
-const ARTIST = { name: "✦ Elli - ORidush ✦", tagline: "Hi! I’m Ellie, and on this website you can buy stuff I’ve created, as well as order a commission or a custom design for stuff! \n\nThis site is still under development, so if you have any questions, write to me on Tumblr! elli-oridush-art ~" };
+const ARTIST = { name: "✦ Elli - ORidush ✦", tagline: "Hi! I’m Elli, and on this website you can buy stuff I’ve created, as well as order a commission or a custom design for stuff! \n\nThis site is still under development, so if you have any questions, write to me on Tumblr! elli-oridush-art ~" };
 
 const LINKS = [
   { name: "Telegram", icon: "telegram", text: "@ellikruze", url: "https://t.me/ellikruze" },
