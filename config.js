@@ -1,13 +1,11 @@
 /* Shop settings. This file is rewritten by the admin site. */
 
-const ARTIST = { name: "✦ Elli - ORidush ✦", tagline: "Wiwiwi wiwiwi wiwiwi" };
+const ARTIST = { name: "✦ Elli - ORidush ✦", tagline: "Hi! I’m Ellie, and on this website you can buy stuff I’ve created, as well as order a commission or a custom design for stuff! " };
 
 const LINKS = [
   { name: "Telegram", icon: "telegram", text: "@ellikruze", url: "https://t.me/ellikruze" },
-  { name: "Instagram", icon: "instagram", text: "@ellikruze", url: "https://instagram.com/ellikruze" },
-  { name: "X / Twitter", icon: "x", text: "@ellikruze", url: "https://x.com/ellikruze" },
-  { name: "Boosty", icon: "boosty", text: "ellikruze", url: "https://boosty.to/ellikruze" },
-  { name: "Email", icon: "email", text: "ellikruze@example.com", url: "mailto:ellikruze@example.com" }
+  { name: "Email", icon: "email", text: "ellikruze@example.com", url: "mailto:ellikruze@example.com" },
+  { name: "Tumblr", icon: "Tumblr", text: "https://www.tumblr.com/blog/elli-oridush-art", url: "mailto:ellikruze@example.com" }
 ];
 
 const PRODUCTS = [
