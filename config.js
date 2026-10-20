@@ -15,7 +15,7 @@ const PRODUCTS = [
     type: "Keychains",
     fandom: ["Warhammer"],
     character: ["Konrad Curze"],
-    price: 350,
+    price: 35,
     img: "img/konrad-mvezljp7.jpg",
     desc: "Keychain, 8–5–3 cm, acrylic"
   },
@@ -25,9 +25,9 @@ const PRODUCTS = [
     type: "Keychains",
     fandom: ["Warhammer"],
     character: ["Rogal Dorn"],
-    price: 30,
+    price: 35,
     img: "img/rogal-mvezdol2.jpg",
-    desc: "Acrylic with glitter inside, 6 cm.",
+    desc: "Keychain, 8–5–3 cm, acrylic",
     isNew: true
   },
   {
@@ -38,7 +38,7 @@ const PRODUCTS = [
     character: ["Corvus Corax", "Konrad Curze"],
     price: 15,
     img: "img/stick1-mvezlxa1.jpg",
-    desc: "sticker"
+    desc: "Sticker pack A5, sugar lamination"
   }
 ];
 
