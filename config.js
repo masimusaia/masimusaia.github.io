@@ -4,7 +4,8 @@ const ARTIST = { name: "✦ Elli - ORidush ✦", tagline: "Hi! I’m Elli, and o
 
 const LINKS = [
   { name: "Telegram", icon: "telegram", text: "@ellikruze", url: "https://t.me/ellikruze" },
-  { name: "Tumblr", icon: "Tumblr", text: "elli-oridush-art", url: "https://www.tumblr.com/blog/elli-oridush-art" }
+  { name: "Tumblr", icon: "Tumblr", text: "elli-oridush-art", url: "https://www.tumblr.com/blog/elli-oridush-art" },
+  { name: "DeviantArt", icon: "Tumblr", text: "DeviantArt", url: "https://www.deviantart.com/oridush" }
 ];
 
 const PRODUCTS = [
