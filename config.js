@@ -17,7 +17,7 @@ const PRODUCTS = [
     character: ["Konrad Curze"],
     price: 35,
     img: "img/konrad-mvezljp7.jpg",
-    desc: "Keychain, 8–5–3 cm, acrylic"
+    desc: "Keychain, 8–5–3 cm, acrylic.\n\nThis keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
   },
   {
     id: "k2",
@@ -27,7 +27,7 @@ const PRODUCTS = [
     character: ["Rogal Dorn"],
     price: 35,
     img: "img/rogal-mvezdol2.jpg",
-    desc: "Keychain, 8–5–3 cm, acrylic",
+    desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part.",
     isNew: true
   },
   {
