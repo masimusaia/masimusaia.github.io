@@ -4,7 +4,6 @@ const ARTIST = { name: "✦ Elli - ORidush ✦", tagline: "Hi! I’m Elli, and o
 
 const LINKS = [
   { name: "Telegram", icon: "telegram", text: "@ellikruze", url: "https://t.me/ellikruze" },
-  { name: "Email", icon: "email", text: "Email", url: "mrsoridush@gmail.com" },
   { name: "Tumblr", icon: "Tumblr", text: "elli-oridush-art", url: "https://www.tumblr.com/blog/elli-oridush-art" }
 ];
 
@@ -83,7 +82,7 @@ const GALLERY = [
 
 const SHOP = {
   currency: "$",
-  contact: { name: "Telegram", text: "@ellikruze", url: "https://t.me/ellikruze" },
+  contact: { name: "Tumblr", text: "@elli-oridush-art", url: "https://www.tumblr.com/blog/elli-oridush-art" },
   zones: [
     { id: "ru", name: "Russia", days: "5–14 days", base: 150, freeFrom: 300 },
     { id: "cis", name: "Belarus, Kazakhstan", days: "10–25 days", base: 300, freeFrom: null },
