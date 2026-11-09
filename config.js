@@ -41,23 +41,13 @@ const PRODUCTS = [
     desc: "Sticker pack A5, sugar lamination"
   },
   {
-    id: "nmw8kus2n",
-    name: "KEYCHAIN",
-    type: "Keychains",
-    fandom: ["Warhammer"],
-    character: ["Sanguinius"],
-    price: 35,
-    img: "",
-    desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
-  },
-  {
     id: "nmw8kweld",
     name: "KEYCHAIN",
     type: "Keychains",
     fandom: ["Warhammer"],
     character: ["Magnus the Red"],
     price: 35,
-    img: "",
+    img: "img/img-4673-mw8ohsq6.jpg",
     desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
   },
   {
@@ -67,7 +57,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Sanguinius"],
     price: 35,
-    img: "",
+    img: "img/img-4678-mw8ohlsd.jpg",
     desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
   },
   {
@@ -77,7 +67,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Leman Russ"],
     price: 35,
-    img: "",
+    img: "img/img-4672-mw8oh813.jpg",
     desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
   },
   {
@@ -87,7 +77,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Sanguinius"],
     price: 35,
-    img: "",
+    img: "img/img-4683-mw8oh0ye.jpg",
     desc: "Keychain, 8cm, acrylic."
   },
   {
@@ -97,7 +87,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Fulgrim"],
     price: 35,
-    img: "",
+    img: "img/img-4668-mw8ogv0z.jpg",
     desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
   },
   {
