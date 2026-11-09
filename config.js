@@ -293,12 +293,15 @@ const COMMISSIONS = {
 };
 
 const GALLERY = [
-  { img: "img/corvus-mvezt6kz.jpg", alt: "head", ratio: 1 },
-  { img: "img/stick3-mveztxdo.jpg", alt: "half-body", ratio: 1 },
-  { img: "img/sanguinius-mvezukwo.jpg", alt: "", ratio: 0.6 },
-  { img: "img/rogal-mvezuvfd.jpg", alt: "", ratio: 1 },
-  { img: "img/stick2-mvezv14n.jpg", alt: "", ratio: 0.85 },
-  { img: "img/stick1-mvezv74x.jpg", alt: "", ratio: 1 }
+  { img: "img/img-4707-mw8ou5ij.jpg", alt: "head", ratio: 1 },
+  { img: "img/img-4698-mw8oug46.jpg", alt: "half-body", ratio: 1 },
+  { img: "img/img-4702-mw8oun3u.jpg", alt: "", ratio: 0.6 },
+  { img: "img/img-4699-mw8ouw0w.jpg", alt: "", ratio: 1 },
+  { img: "img/img-4697-mw8ov2yy.jpg", alt: "", ratio: 0.85 },
+  { img: "img/img-4703-mw8ov806.jpg", alt: "", ratio: 1 },
+  { img: "img/img-4704-mw8ovct1.jpg", alt: "", ratio: 1 },
+  { img: "img/img-4706-mw8ovk4j.jpg", alt: "", ratio: 1 },
+  { img: "", alt: "", ratio: 1 }
 ];
 
 const SHOP = {
