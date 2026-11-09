@@ -159,6 +159,66 @@ const PRODUCTS = [
     price: 55,
     img: "",
     desc: "Tapestry, silk fabric, size 90x50"
+  },
+  {
+    id: "nmw8ls2e2",
+    name: "POSTCARD",
+    type: "Postcards",
+    fandom: ["Warhammer"],
+    character: ["Konrad Curze"],
+    price: 10,
+    img: "",
+    desc: "A5 postcard on silver cardboard."
+  },
+  {
+    id: "nmw8lubkb",
+    name: "POSTCARD",
+    type: "Postcards",
+    fandom: ["Warhammer"],
+    character: ["Corvus Corax"],
+    price: 10,
+    img: "",
+    desc: "A5 postcard on silver cardboard."
+  },
+  {
+    id: "nmw8lv9pc",
+    name: "POSTCARD",
+    type: "Postcards",
+    fandom: ["Warhammer"],
+    character: ["Rogal Dorn"],
+    price: 10,
+    img: "",
+    desc: "A5 postcard on gold cardboard."
+  },
+  {
+    id: "nmw8lwdiq",
+    name: "POSTCARD",
+    type: "Postcards",
+    fandom: ["Warhammer"],
+    character: ["Sanguinius"],
+    price: 10,
+    img: "",
+    desc: "A5 postcard on gold cardboard."
+  },
+  {
+    id: "nmw8lxgjm",
+    name: "POSTCARD",
+    type: "Postcards",
+    fandom: ["Warhammer"],
+    character: ["Leman Russ"],
+    price: 10,
+    img: "",
+    desc: "A5 postcard on gold cardboard."
+  },
+  {
+    id: "nmw8lyzyh",
+    name: "POSTCARD",
+    type: "Postcards",
+    fandom: ["Warhammer"],
+    character: ["Magnus the Red"],
+    price: 10,
+    img: "",
+    desc: "A5 postcard on gold cardboard."
   }
 ];
 
