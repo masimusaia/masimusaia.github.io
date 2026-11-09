@@ -39,6 +39,126 @@ const PRODUCTS = [
     price: 15,
     img: "img/stick1-mvezlxa1.jpg",
     desc: "Sticker pack A5, sugar lamination"
+  },
+  {
+    id: "nmw8kus2n",
+    name: "KEYCHAIN",
+    type: "Keychains",
+    fandom: ["Warhammer"],
+    character: ["Sanguinius"],
+    price: 35,
+    img: "",
+    desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
+  },
+  {
+    id: "nmw8kweld",
+    name: "KEYCHAIN",
+    type: "Keychains",
+    fandom: ["Warhammer"],
+    character: ["Magnus the Red"],
+    price: 35,
+    img: "",
+    desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
+  },
+  {
+    id: "nmw8kxm9j",
+    name: "KEYCHAIN",
+    type: "Keychains",
+    fandom: ["Warhammer"],
+    character: ["Sanguinius"],
+    price: 35,
+    img: "",
+    desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
+  },
+  {
+    id: "nmw8l0z3q",
+    name: "KEYCHAIN",
+    type: "Keychains",
+    fandom: ["Warhammer"],
+    character: ["Leman Russ"],
+    price: 35,
+    img: "",
+    desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
+  },
+  {
+    id: "nmw8l21ud",
+    name: "KEYCHAIN",
+    type: "Keychains",
+    fandom: ["Warhammer"],
+    character: ["Sanguinius"],
+    price: 35,
+    img: "",
+    desc: "Keychain, 8cm, acrylic."
+  },
+  {
+    id: "nmw8l79i6",
+    name: "KEYCHAIN",
+    type: "Keychains",
+    fandom: ["Warhammer"],
+    character: ["Fulgrim"],
+    price: 35,
+    img: "",
+    desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
+  },
+  {
+    id: "nmw8l9saf",
+    name: "KEYCHAIN",
+    type: "Keychains",
+    fandom: ["Warhammer"],
+    character: ["Tyberos the Red Wake"],
+    price: 0,
+    img: "",
+    desc: "EXCLUSIVE! \nKeychain, 11cm, acrylic.\nFree with a purchase of $155 or more! Can be purchased separately for $75."
+  },
+  {
+    id: "nmw8ldp5q",
+    name: "STICKER PACK",
+    type: "Stickers",
+    fandom: ["Warhammer"],
+    character: ["Rogal Dorn", "Sanguinius"],
+    price: 15,
+    img: "",
+    desc: "Sticker pack A5, sugar lamination"
+  },
+  {
+    id: "nmw8legnk",
+    name: "STICKER PACK",
+    type: "Stickers",
+    fandom: ["Warhammer"],
+    character: ["Leman Russ", "Magnus the Red"],
+    price: 15,
+    img: "",
+    desc: "Sticker pack A5, sugar lamination"
+  },
+  {
+    id: "nmw8lhvez",
+    name: "PILLOWCASE",
+    type: "Pillowcase",
+    fandom: ["Warhammer"],
+    character: ["Fulgrim"],
+    price: 55,
+    img: "",
+    desc: "Pillowcase, satin fabric, size 180x60, without a pillow"
+  },
+  {
+    id: "nmw8ljjka",
+    name: "PILLOWCASE",
+    type: "Pillowcase",
+    fandom: ["Warhammer"],
+    character: ["Malcador the Sigillite"],
+    price: 55,
+    img: "",
+    desc: "Pillowcase, satin fabric, size 180x60, without a pillow"
+  },
+  {
+    id: "nmw8lls5p",
+    name: "TAPESTRY",
+    type: "Tapestries",
+    fandom: ["Warhammer"],
+    character: ["Sanguinius", "Horus Lupercal"],
+    price: 55,
+    img: "",
+    desc: "Tapestry, silk fabric, size 90x50"
   }
 ];
 
