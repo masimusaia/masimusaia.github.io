@@ -219,6 +219,56 @@ const PRODUCTS = [
     price: 10,
     img: "",
     desc: "A5 postcard on gold cardboard."
+  },
+  {
+    id: "nmw8nz017",
+    name: "KEYCHAIN",
+    type: "Keychains",
+    fandom: ["Warhammer"],
+    character: ["Corvus Corax"],
+    price: 35,
+    img: "",
+    desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
+  },
+  {
+    id: "nmw8o1fb3",
+    name: "AN ACRYLIC STAND",
+    type: "Stands",
+    fandom: ["Warhammer"],
+    character: ["Horus Lupercal", "Sanguinius"],
+    price: 45,
+    img: "",
+    desc: "A 25 cm acrylic display stand on a rotating base."
+  },
+  {
+    id: "nmw8o2qkn",
+    name: "AN ACRYLIC STAND",
+    type: "Stands",
+    fandom: ["Warhammer"],
+    character: ["Fulgrim", "Ferrus Manus"],
+    price: 45,
+    img: "",
+    desc: "A 25 cm acrylic display stand on a rotating base."
+  },
+  {
+    id: "nmw8o46dr",
+    name: "AN ACRYLIC STAND",
+    type: "Stands",
+    fandom: ["Warhammer"],
+    character: ["Sanguinius"],
+    price: 85,
+    img: "",
+    desc: "A stand made of four parts, height 45 cm; the Sanguinius figurine and the arch have holes for decorative chains, chains included! Exclusive — only 3 sets available."
+  },
+  {
+    id: "nmw8o6c26",
+    name: "AN ACRYLIC STAND",
+    type: "Stands",
+    fandom: ["Warhammer"],
+    character: ["Magnus the Red"],
+    price: 75,
+    img: "",
+    desc: "A set of horses on a rocking stand with riders and a dog. Pearl acrylic; on the reverse side, text from the opera “Tampl”; height: 35 cm including the stand; height of the dog: 7 cm."
   }
 ];
 
