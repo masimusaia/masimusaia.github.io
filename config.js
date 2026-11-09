@@ -279,10 +279,10 @@ const COMMISSIONS = {
   status: "Commissions are open",
   closedStatus: "Commissions are closed for now",
   types: [
-    { id: "icon", name: "Icon", price: 27, img: "img/rogal-mvezq6v9.jpg" },
-    { id: "half", name: "Half-body", price: 37, img: "img/stick2-mvezqo2q.jpg" },
-    { id: "full", name: "Full body", price: 47, img: "img/konrad-mvezr9mw.jpg" },
-    { id: "chib", name: "Illustration", price: 69, img: "" }
+    { id: "icon", name: "Icon", price: 27, img: "img/img-4692-mw8oox2q.jpg" },
+    { id: "half", name: "Half-body", price: 37, img: "img/img-4694-mw8op2jp.jpg" },
+    { id: "full", name: "Full body", price: 47, img: "img/img-4693-mw8op7b4.jpg" },
+    { id: "chib", name: "Illustration", price: 69, img: "img/img-4691-mw8opc0r.jpg" }
   ],
   addons: [
     { name: "Simple background", price: 10, percent: false },
