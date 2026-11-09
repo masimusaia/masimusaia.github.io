@@ -107,7 +107,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Tyberos the Red Wake"],
     price: 0,
-    img: "",
+    img: "img/img-4682-mw8og6iv.jpg",
     desc: "EXCLUSIVE! \nKeychain, 11cm, acrylic.\nFree with a purchase of $155 or more! Can be purchased separately for $75."
   },
   {
@@ -117,7 +117,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Rogal Dorn", "Sanguinius"],
     price: 15,
-    img: "",
+    img: "img/img-4676-mw8ofy2h.jpg",
     desc: "Sticker pack A5, sugar lamination"
   },
   {
@@ -127,7 +127,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Leman Russ", "Magnus the Red"],
     price: 15,
-    img: "",
+    img: "img/img-4681-mw8ofpbn.jpg",
     desc: "Sticker pack A5, sugar lamination"
   },
   {
@@ -137,7 +137,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Fulgrim"],
     price: 55,
-    img: "",
+    img: "img/img-4677-mw8ofi65.jpg",
     desc: "Pillowcase, satin fabric, size 180x60, without a pillow"
   },
   {
@@ -147,7 +147,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Malcador the Sigillite"],
     price: 55,
-    img: "",
+    img: "img/img-4671-mw8ofbtv.jpg",
     desc: "Pillowcase, satin fabric, size 180x60, without a pillow"
   },
   {
