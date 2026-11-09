@@ -308,9 +308,9 @@ const SHOP = {
   currency: "$",
   contact: { name: "Tumblr", text: "@elli-oridush-art", url: "https://www.tumblr.com/blog/elli-oridush-art" },
   zones: [
-    { id: "ru", name: "Russia", days: "5–14 days", base: 150, freeFrom: 300 },
-    { id: "cis", name: "Belarus, Kazakhstan", days: "10–25 days", base: 300, freeFrom: null },
-    { id: "world", name: "Other countries", days: "14–45 days", base: 500, freeFrom: null }
+    { id: "ru", name: "Russia", days: "5–14 days", base: 25, freeFrom: 300 },
+    { id: "cis", name: "Belarus, Kazakhstan", days: "10–25 days", base: 35, freeFrom: 300 },
+    { id: "world", name: "Other countries", days: "14–45 days", base: 35, freeFrom: 300 }
   ]
 };
 
