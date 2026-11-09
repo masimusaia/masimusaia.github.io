@@ -61,16 +61,6 @@ const PRODUCTS = [
     desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
   },
   {
-    id: "nmw8kxm9j",
-    name: "KEYCHAIN",
-    type: "Keychains",
-    fandom: ["Warhammer"],
-    character: ["Sanguinius"],
-    price: 35,
-    img: "",
-    desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
-  },
-  {
     id: "nmw8l0z3q",
     name: "KEYCHAIN",
     type: "Keychains",
@@ -87,7 +77,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Sanguinius"],
     price: 35,
-    img: "",
+    img: "img/img-4683-mw8mws3e.jpg",
     desc: "Keychain, 8cm, acrylic."
   },
   {
@@ -167,7 +157,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Konrad Curze"],
     price: 10,
-    img: "",
+    img: "img/img-4684-mw8mw1qc.jpg",
     desc: "A5 postcard on silver cardboard."
   },
   {
@@ -177,7 +167,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Corvus Corax"],
     price: 10,
-    img: "",
+    img: "img/img-4685-mw8mwa99.jpg",
     desc: "A5 postcard on silver cardboard."
   },
   {
