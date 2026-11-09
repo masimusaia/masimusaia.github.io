@@ -239,14 +239,14 @@ const COMMISSIONS = {
   status: "Commissions are open",
   closedStatus: "Commissions are closed for now",
   types: [
-    { id: "icon", name: "Icon", price: 80, img: "img/rogal-mvezq6v9.jpg" },
-    { id: "half", name: "Half-body", price: 100, img: "img/stick2-mvezqo2q.jpg" },
-    { id: "full", name: "Full body", price: 120, img: "img/konrad-mvezr9mw.jpg" },
-    { id: "chib", name: "Chibi", price: 1200, img: "" }
+    { id: "icon", name: "Icon", price: 27, img: "img/rogal-mvezq6v9.jpg" },
+    { id: "half", name: "Half-body", price: 37, img: "img/stick2-mvezqo2q.jpg" },
+    { id: "full", name: "Full body", price: 47, img: "img/konrad-mvezr9mw.jpg" },
+    { id: "chib", name: "Illustration", price: 69, img: "" }
   ],
   addons: [
-    { name: "Simple background", price: 20, percent: false },
-    { name: "Extra character", price: 100, percent: false },
+    { name: "Simple background", price: 10, percent: false },
+    { name: "Extra character", price: 20, percent: false },
     { name: "Rush", price: 50, percent: true }
   ],
   note: "Prices are for personal use. Commercial use is discussed separately."
@@ -288,21 +288,21 @@ const TERMS = {
       title: "Payment",
       expanded: false,
       blocks: [
-        { type: "p", text: "Payment INFO" }
+        { type: "p", text: "PayPal payment" }
       ]
     },
     {
       title: "Shipping and delivery times",
       expanded: false,
       blocks: [
-        { type: "p", text: "EEEEEE" },
+        { type: "p", text: "Delivery timeframes" },
         {
           type: "table",
           header: true,
           rows: [
             ["Destination", "Time", "Shipping"],
-            ["Russia", "5–14 days", "150 $"],
-            ["Other countries", "14–45 days", "500 $"]
+            ["Russia", "5–14 days", "10 $"],
+            ["Other countries", "14–21 days", "25 $"]
           ]
         },
         { type: "p", text: "Delivery cost and times are approximate and depend on the postal service. I'll send the tracking number right after shipping." }
@@ -312,21 +312,21 @@ const TERMS = {
       title: "If something goes wrong",
       expanded: false,
       blocks: [
-        { type: "p", text: "TTTT" }
+        { type: "p", text: "If the package is lost during delivery, I refund the funds or resend it." }
       ]
     },
     {
       title: "Custom merch",
       expanded: false,
       blocks: [
-        { type: "p", text: "DFGDFGDG" }
+        { type: "p", text: "Assistance with production and delivery is discussed separately; it is possible to produce large stands, tapestries on fabric, pillowcases, etc., featuring your characters." }
       ]
     },
     {
       title: "Digital commissions",
       expanded: false,
       blocks: [
-        { type: "p", text: "VBFFDG" }
+        { type: "p", text: "Changes at the sketch stage are free; send files via stash on DeviantArt; deadline: 1–3 weeks." }
       ]
     },
     {
