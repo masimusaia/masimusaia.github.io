@@ -47,7 +47,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Sanguinius"],
     price: 35,
-    img: "img/img-4678-mw8mhwhb.jpg",
+    img: "",
     desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
   },
   {
@@ -57,7 +57,17 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Magnus the Red"],
     price: 35,
-    img: "img/img-4673-mw8mi7xq.jpg",
+    img: "",
+    desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
+  },
+  {
+    id: "nmw8kxm9j",
+    name: "KEYCHAIN",
+    type: "Keychains",
+    fandom: ["Warhammer"],
+    character: ["Sanguinius"],
+    price: 35,
+    img: "",
     desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
   },
   {
@@ -67,7 +77,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Leman Russ"],
     price: 35,
-    img: "img/img-4672-mw8mp0mc.jpg",
+    img: "",
     desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
   },
   {
@@ -77,7 +87,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Sanguinius"],
     price: 35,
-    img: "img/img-4683-mw8mws3e.jpg",
+    img: "",
     desc: "Keychain, 8cm, acrylic."
   },
   {
@@ -87,7 +97,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Fulgrim"],
     price: 35,
-    img: "img/img-4668-mw8mo099.jpg",
+    img: "",
     desc: "Keychain, 8–5–3 cm, acrylic. This keychain has NSFW content! BONUS: a sticker so you can cover up the NSFW part."
   },
   {
@@ -97,7 +107,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Tyberos the Red Wake"],
     price: 0,
-    img: "img/img-4682-mw8mnro9.jpg",
+    img: "",
     desc: "EXCLUSIVE! \nKeychain, 11cm, acrylic.\nFree with a purchase of $155 or more! Can be purchased separately for $75."
   },
   {
@@ -107,7 +117,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Rogal Dorn", "Sanguinius"],
     price: 15,
-    img: "img/img-4676-mw8mmz63.jpg",
+    img: "",
     desc: "Sticker pack A5, sugar lamination"
   },
   {
@@ -117,7 +127,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Leman Russ", "Magnus the Red"],
     price: 15,
-    img: "img/img-4681-mw8mmsna.jpg",
+    img: "",
     desc: "Sticker pack A5, sugar lamination"
   },
   {
@@ -127,7 +137,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Fulgrim"],
     price: 55,
-    img: "img/img-4677-mw8mir5r.jpg",
+    img: "",
     desc: "Pillowcase, satin fabric, size 180x60, without a pillow"
   },
   {
@@ -137,7 +147,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Malcador the Sigillite"],
     price: 55,
-    img: "img/img-4671-mw8mj2c5.jpg",
+    img: "",
     desc: "Pillowcase, satin fabric, size 180x60, without a pillow"
   },
   {
@@ -147,7 +157,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Sanguinius", "Horus Lupercal"],
     price: 55,
-    img: "img/img-4679-mw8mj9xf.jpg",
+    img: "",
     desc: "Tapestry, silk fabric, size 90x50"
   },
   {
@@ -157,7 +167,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Konrad Curze"],
     price: 10,
-    img: "img/img-4684-mw8mw1qc.jpg",
+    img: "",
     desc: "A5 postcard on silver cardboard."
   },
   {
@@ -167,7 +177,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Corvus Corax"],
     price: 10,
-    img: "img/img-4685-mw8mwa99.jpg",
+    img: "",
     desc: "A5 postcard on silver cardboard."
   },
   {
@@ -177,7 +187,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Rogal Dorn"],
     price: 10,
-    img: "img/img-4670-mw8mkg7i.jpg",
+    img: "",
     desc: "A5 postcard on gold cardboard."
   },
   {
@@ -187,7 +197,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Sanguinius"],
     price: 10,
-    img: "img/img-4669-mw8mk9p7.jpg",
+    img: "",
     desc: "A5 postcard on gold cardboard."
   },
   {
@@ -197,7 +207,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Leman Russ"],
     price: 10,
-    img: "img/img-4675-mw8mk11g.jpg",
+    img: "",
     desc: "A5 postcard on gold cardboard."
   },
   {
@@ -207,7 +217,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Magnus the Red"],
     price: 10,
-    img: "img/img-4674-mw8mjv7j.jpg",
+    img: "",
     desc: "A5 postcard on gold cardboard."
   }
 ];
@@ -217,8 +227,8 @@ const CUSTOM = {
   status: "Custom orders are open",
   closedStatus: "Custom orders are closed for now",
   types: [
-    { id: "c-key", name: "Acrylic keychains", from: 450, minQty: 5, img: "img/sanguinius-mvf63phz.jpg" },
-    { id: "c-stk", name: "Stickers", from: 150, minQty: 10, img: "img/stick1-mvf63y28.jpg" },
+    { id: "c-key", name: "Acrylic keychains", from: 45, minQty: 1, img: "img/sanguinius-mvf63phz.jpg" },
+    { id: "c-stk", name: "Stickers", from: 35, minQty: 1, img: "img/stick1-mvf63y28.jpg" },
     { id: "c-other", name: "Something else", from: null, minQty: 1, img: "" }
   ],
   how: ["Message me with your idea, quantity and references.", "I reply with the final price and the timeline.", "You confirm and pay the prepayment, then I start production.", "I ship the batch and send you the tracking number."]
