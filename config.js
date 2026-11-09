@@ -157,7 +157,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Sanguinius", "Horus Lupercal"],
     price: 55,
-    img: "",
+    img: "img/img-4679-mw8oea9j.jpg",
     desc: "Tapestry, silk fabric, size 90x50"
   },
   {
@@ -187,7 +187,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Rogal Dorn"],
     price: 10,
-    img: "",
+    img: "img/img-4670-mw8oe0ty.jpg",
     desc: "A5 postcard on gold cardboard."
   },
   {
@@ -197,7 +197,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Sanguinius"],
     price: 10,
-    img: "",
+    img: "img/img-4669-mw8odsav.jpg",
     desc: "A5 postcard on gold cardboard."
   },
   {
@@ -207,7 +207,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Leman Russ"],
     price: 10,
-    img: "",
+    img: "img/img-4675-mw8odkul.jpg",
     desc: "A5 postcard on gold cardboard."
   },
   {
@@ -217,7 +217,7 @@ const PRODUCTS = [
     fandom: ["Warhammer"],
     character: ["Magnus the Red"],
     price: 10,
-    img: "",
+    img: "img/img-4674-mw8oddkt.jpg",
     desc: "A5 postcard on gold cardboard."
   },
   {
